@@ -114,13 +114,13 @@ def main() -> None:
         raise RuntimeError("Voice manifest is stale; regenerate from the global story")
     starts, card_start, total = timing(manifest)
     scene_specs = [
-        ("arrival", 0.0, starts[1], "01_miller_arrives.jpg", 1.01, 1.05, -9, -4),
-        ("confession", starts[1], starts[3], "02_miller_confesses.jpg", 1.01, 1.06, -12, -6),
-        ("surprise", starts[3], starts[4], "01_miller_arrives.jpg", 1.05, 1.09, 6, -5),
-        ("encourage", starts[4], starts[6], "03_dad_encourages.jpg", 1.02, 1.08, -10, -7),
+        ("arrival", 0.0, starts[1], "01_miller_arrives-daughter.jpg", 1.01, 1.05, -9, -4),
+        ("confession", starts[1], starts[3], "02_miller_confesses-daughter.jpg", 1.01, 1.06, -12, -6),
+        ("surprise", starts[3], starts[4], "01_miller_arrives-daughter.jpg", 1.05, 1.09, 6, -5),
+        ("encourage", starts[4], starts[6], "03_dad_encourages-daughter.jpg", 1.02, 1.08, -10, -7),
         ("call", starts[6], starts[8], "04_miller_calls.jpg", 1.01, 1.08, -8, -9),
-        ("answer", starts[8], card_start, "05_dad_hurries.jpg", 1.01, 1.06, -9, -5),
-        ("phrase", card_start, total, "05_dad_hurries.jpg", 1.06, 1.03, 6, 3),
+        ("answer", starts[8], card_start, "05_dad_hurries-daughter.jpg", 1.01, 1.06, -9, -5),
+        ("phrase", card_start, total, "05_dad_hurries-daughter.jpg", 1.06, 1.03, 6, 3),
     ]
     scenes = [(name, round(a, 3), round(b-a, 3), img, sa, sb, x, y)
               for name, a, b, img, sa, sb, x, y in scene_specs]
