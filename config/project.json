@@ -1,0 +1,42 @@
+{
+  "project_id": "xiangwei_barber_shop",
+  "schema_version": 1,
+  "execution": {
+    "local_only": true,
+    "gpu_concurrency": 1,
+    "max_candidates_per_shot": 3,
+    "auto_publish": false
+  },
+  "image": {
+    "provider": "mflux",
+    "executable": "/Users/product/Barbershop/vendor/mflux/.venv/bin/mflux-generate-flux2",
+    "edit_executable": "/Users/product/Barbershop/vendor/mflux/.venv/bin/mflux-generate-flux2-edit",
+    "model": "/Users/product/Barbershop/models/hf/hub/models--black-forest-labs--FLUX.2-klein-4B/snapshots/e7b7dc27f91deacad38e78976d1f2b499d76a294",
+    "base_model": "flux2-klein-4b",
+    "model_revision": "e7b7dc27f91deacad38e78976d1f2b499d76a294",
+    "source_revision": "9b9fd43aae32909dec9d313b7ecf5342aa3d05f2",
+    "quantize": 8,
+    "steps": 4,
+    "reference_edit_verified": true
+  },
+  "video": {
+    "provider": "ltx_mlx",
+    "executable": "/Users/product/Barbershop/vendor/ltx-2-mlx/.venv/bin/ltx-2-mlx",
+    "model": "/Users/product/Barbershop/models/ltx-2.3-mlx-q8",
+    "model_revision": "6671a7572a530862d1d60ce393b5d93491e3f76b",
+    "source_revision": "8605f326edb736e50922f5fc40c01778e8a6d17a",
+    "mode": "distilled",
+    "preview_height": 704,
+    "preview_width": 384,
+    "fps": 24,
+    "final_width": 1080,
+    "final_height": 1920
+  },
+  "audio": {
+    "provider": "mlx_audio",
+    "executable": "/Users/product/video_commentary/.qwen-tts-venv/bin/mlx_audio.tts.generate",
+    "model": "/Users/product/video_commentary/.qwen-tts-models/hub/models--mlx-community--Qwen3-TTS-12Hz-1.7B-CustomVoice-8bit/snapshots/41d3337e8b7f2843a75841595fc14e4b9a7a4b96",
+    "voice": "Uncle_Fu",
+    "language": "Chinese"
+  }
+}

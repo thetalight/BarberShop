@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="en"><head></head><body><template>
+<style>
+#scene-reaction-root{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;background:#251f18}
+#scene-reaction-root img{display:block;width:100%;height:100%;object-fit:cover;transform-origin:50% 50%;will-change:transform}
+</style>
+<div data-hf-id="hf-2kmh" id="scene-reaction-root" data-composition-id="scene-reaction" data-width="1080" data-height="1920" data-duration="4.2" data-layout-allow-overflow="">
+  <img data-hf-id="hf-o21a" src="assets/stills/04_emma_reacts.jpg" alt="reaction">
+</div>
+<script>(function(){
+const tl=gsap.timeline({paused:true});
+tl.fromTo("#scene-reaction-root img",{scale:1.01,x:0,y:0},{scale:1.07,x:-12,y:-8,duration:4.2,ease:"sine.inOut"},0);
+window.__timelines["scene-reaction"]=tl;
+})();</script>
+</template></body></html>

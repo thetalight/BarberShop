@@ -1,0 +1,20 @@
+{
+  "id": "ep001_daily",
+  "series_id": "xiangwei",
+  "story_id": "ST001",
+  "title": "约会还没约成",
+  "intro": "米勒爷爷想约太太吃饭，却不敢开口。",
+  "language": "en-US",
+  "subtitle_languages": ["en", "zh-CN"],
+  "source_project": "videos/ep001",
+  "asset_catalogs": ["series/xiangwei/assets/fixed.json"],
+  "shots": [
+    {"id": "arrival", "start": 0, "duration": 2.972, "asset": "videos/ep001/compositions/scene-arrival.html"},
+    {"id": "confession", "start": 2.972, "duration": 4.244, "asset": "videos/ep001/compositions/scene-confession.html"},
+    {"id": "surprise", "start": 7.216, "duration": 2.163, "asset": "videos/ep001/compositions/scene-surprise.html"},
+    {"id": "encourage", "start": 9.379, "duration": 5.215, "asset": "videos/ep001/compositions/scene-encourage.html"},
+    {"id": "call", "start": 14.594, "duration": 6.016, "asset": "videos/ep001/compositions/scene-call.html"},
+    {"id": "answer", "start": 20.61, "duration": 4.049, "asset": "videos/ep001/compositions/scene-answer.html"},
+    {"id": "phrase", "start": 24.659, "duration": 4.8, "asset": "videos/ep001/compositions/scene-phrase.html"}
+  ]
+}

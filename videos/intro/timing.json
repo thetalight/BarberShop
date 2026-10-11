@@ -1,0 +1,177 @@
+{
+  "scenes": [
+    [
+      "hold",
+      3.6,
+      2.1,
+      "opening_hold.png",
+      "父女站在理发店门前",
+      1.01,
+      1.08,
+      -12,
+      -8
+    ],
+    [
+      "chair",
+      5.7,
+      5.08,
+      "scene_02b.png",
+      "爸爸和女儿在理发椅旁",
+      1.02,
+      1.09,
+      -15,
+      -6
+    ],
+    [
+      "commuter",
+      10.78,
+      2.97,
+      "scene_03.png",
+      "上班族熟客走进店里",
+      1.04,
+      1.11,
+      -12,
+      -8
+    ],
+    [
+      "retiree",
+      13.75,
+      3.17,
+      "scene_04b.png",
+      "退休熟客讲故事",
+      1.22,
+      1.28,
+      -18,
+      -34
+    ],
+    [
+      "neighbor",
+      16.92,
+      4.45,
+      "scene_05b.png",
+      "邻店老板带咖啡来串门",
+      1.03,
+      1.1,
+      -12,
+      -8
+    ],
+    [
+      "welcome",
+      21.37,
+      7.28,
+      "scene_01.jpg",
+      "爸爸打开店门迎客",
+      1.03,
+      1.11,
+      -14,
+      -12
+    ],
+    [
+      "drawing",
+      28.65,
+      7.03,
+      "scene_06.png",
+      "女儿把画给爸爸看",
+      1.02,
+      1.1,
+      14,
+      -10
+    ],
+    [
+      "closing",
+      35.68,
+      3.92,
+      "scene_01.jpg",
+      "父女站在店门前",
+      1.05,
+      1.12,
+      -10,
+      -10
+    ]
+  ],
+  "captions": [
+    [
+      0.25,
+      2.42,
+      "My dad has a barbershop here in America.",
+      "我爸爸在美国开了一家理发店。"
+    ],
+    [
+      2.67,
+      2.42,
+      "After school, I come right here.",
+      "放学后，我就来这里。"
+    ],
+    [
+      5.8,
+      1.75,
+      "Dad has a big barber chair.",
+      "爸爸有一把大大的理发椅。"
+    ],
+    [
+      7.55,
+      2.05,
+      "And I have a little toy corner.",
+      "我有一个小小的玩具角。"
+    ],
+    [
+      10.88,
+      2.1,
+      "Emma is always in a hurry.",
+      "艾玛总是有点赶时间。"
+    ],
+    [
+      12.98,
+      3.15,
+      "Mr. Miller loves talking about his dog, Milo.",
+      "米勒爷爷爱讲他的小狗米洛。"
+    ],
+    [
+      17.02,
+      2.1,
+      "Our neighbor runs the coffee shop.",
+      "邻居阿姨开着隔壁的咖啡店。"
+    ],
+    [
+      19.12,
+      2.1,
+      "Sometimes she brings us coffee.",
+      "有时候她会给我们带咖啡。"
+    ],
+    [
+      21.7,
+      3.58,
+      "When someone opens the door, Dad smiles and says:",
+      "有人推门进来，爸爸就笑着说："
+    ],
+    [
+      26.95,
+      1.69,
+      "I say it, too!",
+      "我也跟着说！"
+    ],
+    [
+      28.78,
+      2.83,
+      "I learn a new English phrase here every day.",
+      "我每天都在这里学一句新英语。"
+    ],
+    [
+      31.61,
+      3.14,
+      "Come back tomorrow for another little story from our shop.",
+      "明天再来听理发店里的小故事吧。"
+    ]
+  ],
+  "audio_starts": {
+    "01": 0.25,
+    "02": 5.8,
+    "03": 10.88,
+    "04": 17.02,
+    "05a": 21.7,
+    "05b": 25.38,
+    "05c": 26.95,
+    "06": 28.78,
+    "07": 35.79
+  }
+}

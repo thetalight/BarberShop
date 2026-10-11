@@ -1,0 +1,101 @@
+[
+  {
+    "id": "01",
+    "speaker": "retired_regular",
+    "en": "Can you fit me in? I have a date tonight.",
+    "zh": "能给我加个号吗？我今晚有个约会。",
+    "voice": "am_adam",
+    "duration": 2.432,
+    "path": "assets/voice/01.wav"
+  },
+  {
+    "id": "02",
+    "speaker": "dad",
+    "en": "With whom?",
+    "zh": "和谁？",
+    "voice": "am_michael",
+    "duration": 1.003,
+    "path": "assets/voice/02.wav"
+  },
+  {
+    "id": "03",
+    "speaker": "retired_regular",
+    "en": "My wife. Well... I haven't asked her yet.",
+    "zh": "我太太。其实……我还没问她。",
+    "voice": "am_adam",
+    "duration": 2.261,
+    "path": "assets/voice/03.wav"
+  },
+  {
+    "id": "04",
+    "speaker": "dad",
+    "en": "You've been married forty years!",
+    "zh": "你们都结婚四十年了！",
+    "voice": "am_michael",
+    "duration": 1.813,
+    "path": "assets/voice/04.wav"
+  },
+  {
+    "id": "05",
+    "speaker": "retired_regular",
+    "en": "That doesn't make asking easier.",
+    "zh": "这也不会让开口变容易啊。",
+    "voice": "am_adam",
+    "duration": 1.771,
+    "path": "assets/voice/05.wav"
+  },
+  {
+    "id": "06",
+    "speaker": "dad",
+    "en": "Try this: How about dinner tonight?",
+    "zh": "试试这句：今晚一起吃饭怎么样？",
+    "voice": "am_michael",
+    "duration": 2.304,
+    "path": "assets/voice/06.wav"
+  },
+  {
+    "id": "07",
+    "speaker": "retired_regular",
+    "en": "Hi, honey. How about dinner tonight?",
+    "zh": "亲爱的，今晚一起吃饭怎么样？",
+    "voice": "am_adam",
+    "duration": 2.091,
+    "path": "assets/voice/07.wav"
+  },
+  {
+    "id": "08",
+    "speaker": "daughter",
+    "en": "Did she say yes?",
+    "zh": "她答应了吗？",
+    "voice": "af_nova",
+    "duration": 1.835,
+    "path": "assets/voice/08.wav"
+  },
+  {
+    "id": "09",
+    "speaker": "retired_regular",
+    "en": "She said, 'Be on time.'",
+    "zh": "她说：“别迟到。”",
+    "voice": "am_adam",
+    "duration": 1.429,
+    "path": "assets/voice/09.wav"
+  },
+  {
+    "id": "10",
+    "speaker": "dad",
+    "en": "Then we'd better hurry.",
+    "zh": "那我们得快点了。",
+    "voice": "am_michael",
+    "duration": 1.6,
+    "path": "assets/voice/10.wav"
+  },
+  {
+    "id": "11",
+    "speaker": "dad",
+    "en": "How about dinner tonight?",
+    "zh": "今晚一起吃饭怎么样？",
+    "voice": "am_michael",
+    "duration": 1.728,
+    "path": "assets/voice/11.wav"
+  }
+]

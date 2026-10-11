@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><body><template>
+<style>
+#scene-confession-root{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;background:#251f18}
+#scene-confession-root img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center center;transform-origin:50% 50%;will-change:transform,opacity}
+#confession-shy{opacity:0}
+</style>
+<div id="scene-confession-root" data-composition-id="scene-confession" data-width="1080" data-height="1920" data-duration="4.244" data-layout-allow-overflow>
+  <img id="confession-first" src="assets/stills/02_miller_confesses.jpg" alt="Dad asks who the date is with">
+  <img id="confession-shy" src="assets/motion/confession-shy.jpg" alt="Mr. Miller admits he has not asked his wife yet">
+</div>
+<script>(function(){
+const tl=gsap.timeline({paused:true});
+tl.fromTo("#confession-first",{scale:1.01,x:0,y:0},{scale:1.035,x:-6,y:-3,duration:1.4,ease:"sine.inOut"},0);
+tl.fromTo("#confession-shy",{opacity:0,scale:1.035,x:-6,y:-3},{opacity:1,scale:1.042,x:-8,y:-4,duration:.10,ease:"power2.out",immediateRender:false},1.30);
+tl.to("#confession-shy",{scale:1.075,x:-14,y:-7,duration:2.843,ease:"sine.inOut"},1.401);
+window.__timelines["scene-confession"]=tl;
+})();</script>
+</template></body></html>

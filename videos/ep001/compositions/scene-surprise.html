@@ -1,0 +1,14 @@
+<!doctype html><html lang="en"><body><template>
+<style>
+#scene-surprise-root{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;background:#251f18}
+#scene-surprise-root img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;transform-origin:50% 50%;will-change:transform}
+</style>
+<div id="scene-surprise-root" data-composition-id="scene-surprise" data-width="1080" data-height="1920" data-duration="2.163" data-layout-allow-overflow>
+  <img src="assets/motion/confession-shy.jpg" alt="Dad is surprised that Mr. Miller is still nervous">
+</div>
+<script>(function(){
+const tl=gsap.timeline({paused:true});
+tl.fromTo("#scene-surprise-root img",{scale:1.05,x:0,y:0},{scale:1.09,x:6,y:-5,duration:2.163,ease:"sine.inOut"},0);
+window.__timelines["scene-surprise"]=tl;
+})();</script>
+</template></body></html>

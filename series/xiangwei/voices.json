@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "series_id": "xiangwei",
+  "voices": {
+    "dad": {
+      "provider": "kokoro",
+      "model": "kokoro-82M",
+      "voice_id": "am_michael",
+      "language": "en-US",
+      "speed": 0.98
+    },
+    "daughter": {
+      "provider": "kokoro",
+      "model": "kokoro-82M",
+      "voice_id": "af_nova",
+      "language": "en-US",
+      "speed": 0.95
+    },
+    "retired_regular": {
+      "provider": "kokoro",
+      "model": "kokoro-82M",
+      "voice_id": "am_adam",
+      "language": "en-US",
+      "speed": 0.9
+    },
+    "commuter_regular": {
+      "provider": "kokoro",
+      "model": "kokoro-82M",
+      "voice_id": "af_heart",
+      "language": "en-US",
+      "speed": 1.02
+    }
+  }
+}

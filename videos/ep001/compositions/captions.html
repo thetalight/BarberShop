@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><body><template>
+<style>
+#captions-root{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;color:#fff9ec;font-family:system-ui,-apple-system,sans-serif}
+#captions-root .shade{position:absolute;left:0;right:0;bottom:0;height:660px;background:linear-gradient(to top,rgba(22,17,13,.91),rgba(22,17,13,.52) 57%,transparent)}
+#captions-root .clip{position:absolute;inset:0}
+#captions-root .caption{display:flex;align-items:flex-end;justify-content:center;padding:0 76px 240px}
+#captions-root .caption-copy{max-width:928px;text-align:center;text-shadow:0 3px 0 #241b15,3px 0 #241b15,-3px 0 #241b15,0 8px 26px #000}
+#captions-root .english{display:block;font-size:51px;line-height:1.2;font-weight:800}
+#captions-root .chinese{display:block;margin-top:13px;font-size:39px;line-height:1.22;font-weight:720;color:#f6dbad}
+#captions-root .phrase-card{display:flex;align-items:flex-end;justify-content:center;padding:0 70px 340px}
+#captions-root .phrase-inner{width:100%;border:2px solid rgba(243,197,129,.70);border-radius:30px;background:rgba(31,24,19,.9);padding:36px 30px 42px;text-align:center;box-shadow:0 20px 55px rgba(0,0,0,.35)}
+#captions-root .phrase-kicker{display:block;color:#f3c581;font-size:28px;font-weight:780;letter-spacing:.14em;margin-bottom:18px}
+#captions-root .phrase-en{display:block;font-size:68px;line-height:1.11;font-weight:850;letter-spacing:-.025em}
+#captions-root .phrase-zh{display:block;margin-top:19px;color:#f3c581;font-size:48px;font-weight:750}
+#captions-root .follow{display:block;margin-top:23px;color:#fff0d8;font-size:31px;font-weight:650}
+</style>
+<div id="captions-root" data-composition-id="captions" data-width="1080" data-height="1920" data-duration="29.459">
+  <div class="shade"></div>
+  <div id="caption-01" class="clip caption" data-start="0.040" data-duration="2.732" data-track-index="0">
+<div class="caption-copy"><span class="english">Can you fit me in? I have a date tonight.</span><span class="chinese">能给我加个号吗？我今晚有个约会。</span></div></div><div id="caption-02" class="clip caption" data-start="2.892" data-duration="1.303" data-track-index="0">
+<div class="caption-copy"><span class="english">With whom?</span><span class="chinese">和谁？</span></div></div><div id="caption-03" class="clip caption" data-start="4.255" data-duration="2.561" data-track-index="0">
+<div class="caption-copy"><span class="english">My wife. Well... I haven&#x27;t asked her yet.</span><span class="chinese">我太太。其实……我还没问她。</span></div></div><div id="caption-04" class="clip caption" data-start="7.136" data-duration="2.113" data-track-index="0">
+<div class="caption-copy"><span class="english">You&#x27;ve been married forty years!</span><span class="chinese">你们都结婚四十年了！</span></div></div><div id="caption-05" class="clip caption" data-start="9.299" data-duration="2.071" data-track-index="0">
+<div class="caption-copy"><span class="english">That doesn&#x27;t make asking easier.</span><span class="chinese">这也不会让开口变容易啊。</span></div></div><div id="caption-06" class="clip caption" data-start="11.490" data-duration="2.604" data-track-index="0">
+<div class="caption-copy"><span class="english">Try this: How about dinner tonight?</span><span class="chinese">试试这句：今晚一起吃饭怎么样？</span></div></div><div id="caption-07" class="clip caption" data-start="14.514" data-duration="2.391" data-track-index="0">
+<div class="caption-copy"><span class="english">Hi, honey. How about dinner tonight?</span><span class="chinese">亲爱的，今晚一起吃饭怎么样？</span></div></div><div id="caption-08" class="clip caption" data-start="18.255" data-duration="2.135" data-track-index="0">
+<div class="caption-copy"><span class="english">Did she say yes?</span><span class="chinese">她答应了吗？</span></div></div><div id="caption-09" class="clip caption" data-start="20.530" data-duration="1.729" data-track-index="0">
+<div class="caption-copy"><span class="english">She said, &#x27;Be on time.&#x27;</span><span class="chinese">她说：“别迟到。”</span></div></div><div id="caption-10" class="clip caption" data-start="22.459" data-duration="1.900" data-track-index="0">
+<div class="caption-copy"><span class="english">Then we&#x27;d better hurry.</span><span class="chinese">那我们得快点了。</span></div></div>
+  <div id="phrase-card" class="clip phrase-card" data-start="24.659" data-duration="4.800" data-track-index="0"><div class="phrase-inner">
+    <span class="phrase-kicker">TODAY'S ENGLISH</span><span class="phrase-en">How about dinner tonight?</span>
+    <span class="phrase-zh">今晚一起吃饭怎么样？</span><span class="follow">跟着说一遍 · Say it with us</span>
+  </div></div>
+</div>
+<script>(function(){
+const tl=gsap.timeline({paused:true});
+document.querySelectorAll("#captions-root .caption").forEach(c=>{const t=Number(c.dataset.start);
+tl.fromTo(c.querySelector(".caption-copy"),{opacity:0,y:16},{opacity:1,y:0,duration:.23,ease:"power2.out",immediateRender:false},t+.02);});
+tl.fromTo("#phrase-card .phrase-inner",{opacity:0,scale:.96,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"power3.out",immediateRender:false},24.739);
+window.__timelines["captions"]=tl;
+})();</script>
+</template></body></html>
