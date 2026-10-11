@@ -2,63 +2,72 @@
   {
     "id": "01",
     "text": "My dad has a barbershop here in America. After school, I come right here.",
-    "voice": "af_nova",
+    "voice": "af_heart",
+    "pitch_shift": 1.22,
     "duration": 4.843,
     "path": "assets/voice/01.wav"
   },
   {
     "id": "02",
     "text": "Dad has a big barber chair. And I have a little toy corner.",
-    "voice": "af_nova",
+    "voice": "af_heart",
+    "pitch_shift": 1.22,
     "duration": 3.797,
     "path": "assets/voice/02.wav"
   },
   {
     "id": "03",
     "text": "Emma is always in a hurry. Mr. Miller loves talking about his dog, Milo.",
-    "voice": "af_nova",
+    "voice": "af_heart",
+    "pitch_shift": 1.22,
     "duration": 5.248,
     "path": "assets/voice/03.wav"
   },
   {
     "id": "04",
     "text": "Our neighbor runs the coffee shop. Sometimes she brings us coffee.",
-    "voice": "af_nova",
+    "voice": "af_heart",
+    "pitch_shift": 1.22,
     "duration": 4.203,
     "path": "assets/voice/04.wav"
   },
   {
     "id": "05a",
     "text": "When someone opens the door, Dad smiles and says:",
-    "voice": "af_nova",
+    "voice": "af_heart",
+    "pitch_shift": 1.22,
     "duration": 3.584,
     "path": "assets/voice/05a.wav"
   },
   {
     "id": "05b",
     "text": "Come on in!",
-    "voice": "af_nova",
+    "voice": "af_heart",
+    "pitch_shift": 1.22,
     "duration": 1.451,
     "path": "assets/voice/05b.wav"
   },
   {
     "id": "05c",
     "text": "I say it, too!",
-    "voice": "af_nova",
+    "voice": "af_heart",
+    "pitch_shift": 1.22,
     "duration": 1.685,
     "path": "assets/voice/05c.wav"
   },
   {
     "id": "06",
     "text": "I learn a new English phrase here every day. Come back tomorrow for another little story from our shop.",
-    "voice": "af_nova",
+    "voice": "af_heart",
+    "pitch_shift": 1.22,
     "duration": 5.973,
     "path": "assets/voice/06.wav"
   },
   {
     "id": "07",
     "text": "See you tomorrow!",
-    "voice": "af_nova",
+    "voice": "af_heart",
+    "pitch_shift": 1.22,
     "duration": 1.877,
     "path": "assets/voice/07.wav"
   }

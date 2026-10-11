@@ -12,9 +12,11 @@
     "daughter": {
       "provider": "kokoro",
       "model": "kokoro-82M",
-      "voice_id": "af_nova",
+      "voice_id": "af_heart",
       "language": "en-US",
-      "speed": 0.95
+      "speed": 0.95,
+      "pitch_shift": 1.22,
+      "formant": "shifted"
     },
     "retired_regular": {
       "provider": "kokoro",

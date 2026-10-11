@@ -5,6 +5,9 @@ from __future__ import annotations
 import json
 import os
 import subprocess
+import argparse
+import shutil
+import re
 from pathlib import Path
 
 
@@ -13,7 +16,18 @@ ROOT = PROJECT.parents[1]
 OUT = PROJECT / "assets/voice"
 PYTHON = ROOT / "videos/intro/.venv-tts/bin/python"
 CLI = os.environ.get("HYPERFRAMES_CLI")
+PIN = re.search(r"hyperframes@([0-9.]+)", json.loads((PROJECT / "package.json").read_text())["scripts"]["dev"]).group(1)
 VOICES = json.loads((ROOT / "series/xiangwei/voices.json").read_text(encoding="utf-8"))["voices"]
+
+
+def ffmpeg_binary(needs_pitch: bool) -> str:
+    candidates = [os.environ.get("FFMPEG_BIN"), shutil.which("ffmpeg"), "/opt/homebrew/opt/ffmpeg-full/bin/ffmpeg"]
+    for candidate in filter(None, candidates):
+        if not Path(candidate).is_file():
+            continue
+        if not needs_pitch or "rubberband" in subprocess.check_output([candidate, "-hide_banner", "-filters"], text=True):
+            return candidate
+    raise RuntimeError("FFmpeg with the rubberband audio filter is required for the daughter's voice")
 
 
 def story() -> dict:
@@ -32,35 +46,59 @@ def duration(path: Path) -> float:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--speaker", help="Regenerate only one speaker, preserving all other recorded lines")
+    args = parser.parse_args()
     if not PYTHON.is_file():
         raise RuntimeError(f"Kokoro Python environment is missing: {PYTHON}")
     episode = story()
     lines = episode["dialogue"] + [{"speaker": "dad", "en": episode["core_expression"],
                                      "zh": episode["meaning"]}]
     OUT.mkdir(parents=True, exist_ok=True)
+    manifest_path = OUT / "manifest.json"
+    previous = {item["id"]: item for item in json.loads(manifest_path.read_text(encoding="utf-8"))} if manifest_path.exists() else {}
     manifest = []
     for index, line in enumerate(lines, 1):
         key = f"{index:02d}"
+        if args.speaker and line["speaker"] != args.speaker:
+            if key not in previous:
+                raise RuntimeError(f"Missing existing recording for {key}; run without --speaker first")
+            manifest.append(previous[key])
+            continue
         settings = VOICES[line["speaker"]]
         voice, speed = settings["voice_id"], settings["speed"]
         raw = OUT / f"{key}.raw.wav"
         wav = OUT / f"{key}.wav"
-        cli = ["node", CLI] if CLI else ["npx", "--yes", "hyperframes@0.8.144"]
+        cli = ["node", CLI] if CLI else ["npx", "--yes", f"hyperframes@{PIN}"]
         env = dict(os.environ, HYPERFRAMES_PYTHON=str(PYTHON))
         subprocess.run(cli + ["tts", line["en"], "--voice", voice, "--speed", str(speed),
                               "-o", str(raw)], env=env, check=True)
+        target = previous.get(key, {}).get("duration") if previous.get(key, {}).get("en") == line["en"] else None
+        pitch = settings.get("pitch_shift", 1.0)
+        filters = []
+        if pitch != 1.0 or target and duration(raw) > target:
+            tempo = max(1.0, duration(raw) / target * 1.02) if target else 1.0
+            filters.append(f"rubberband=tempo={tempo:.5f}:pitch={pitch}:formant={settings.get('formant', 'shifted')}:transients=smooth:pitchq=quality")
+        filters.extend(["highpass=f=65", "loudnorm=I=-19:TP=-2:LRA=8"])
         subprocess.run([
-            "ffmpeg", "-y", "-v", "error", "-i", str(raw), "-ar", "48000", "-ac", "1",
-            "-af", "highpass=f=65,loudnorm=I=-19:TP=-2:LRA=8", str(wav),
+            ffmpeg_binary(pitch != 1.0), "-y", "-v", "error", "-i", str(raw), "-ar", "48000", "-ac", "1",
+            "-af", ",".join(filters), str(wav),
         ], check=True)
+        if target:
+            aligned = OUT / f"{key}.aligned.wav"
+            subprocess.run([
+                ffmpeg_binary(False), "-y", "-v", "error", "-i", str(wav), "-ar", "48000", "-ac", "1",
+                "-af", f"asetpts=PTS-STARTPTS,apad=whole_dur={target},atrim=duration={target}", str(aligned),
+            ], check=True)
+            aligned.replace(wav)
         raw.unlink()
         seconds = duration(wav)
         if seconds < 0.25:
             raise RuntimeError(f"Voice synthesis produced no audio: {key}")
         manifest.append({"id": key, "speaker": line["speaker"], "en": line["en"], "zh": line["zh"],
-                         "voice": voice, "duration": round(seconds, 3), "path": str(wav.relative_to(PROJECT))})
+                         "voice": voice, "pitch_shift": pitch, "duration": round(seconds, 3), "path": str(wav.relative_to(PROJECT))})
         print(f"{key}: {seconds:.2f}s {voice} {line['en']}", flush=True)
-    (OUT / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

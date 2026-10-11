@@ -67,7 +67,8 @@
     "speaker": "daughter",
     "en": "Did she say yes?",
     "zh": "她答应了吗？",
-    "voice": "af_nova",
+    "voice": "af_heart",
+    "pitch_shift": 1.22,
     "duration": 1.835,
     "path": "assets/voice/08.wav"
   },
