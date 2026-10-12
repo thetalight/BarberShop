@@ -15,6 +15,7 @@ python3 -m barber.web --port 8765
 所有活动故事文字都保存在 **`series/xiangwei/stories.jsonl`**，每行一条 JSON。`ST000` 是已制作的英文旁白系列开场，含逐段英文和中文字幕；`ST001`、`ST002` 是已制作的日更对话视频；`ST003`～`ST030` 是待写对话的日更选题。每条日更记录包含：
 
 - `intro`：10～20 字对外简介，不计标点和空格。
+- `publish_title`：可直接用于抖音发布的内容标题；选题阶段为暂定稿，成片前按实际故事修订。工作台和历史任务会显示，并可复制。
 - `category`：`service`（接待与服务）、`chat`（顾客闲聊）或 `interaction`（父女与邻里）。
 - `setting`：`shop` 或 `community`；每 10 条有 9 条在店内。
 - `core_expression`、`meaning`、`variant`：本集核心句、中文意思和一个简单变体。
@@ -30,7 +31,7 @@ python3 -m barber.cli story check --file /tmp/new_story.json
 python3 -m barber.cli story register --file /tmp/new_story.json
 ```
 
-修改已有记录使用 `story update --file /tmp/new_story.json`。查重会检查 ID、标题、核心事件、核心英语表达和高度相似的梗概。故事库是唯一文案来源，避免把每天的剧本散放到单集目录。
+修改已有记录使用 `story update --file /tmp/new_story.json`。查重会检查 ID、故事名、发布标题、核心事件、核心英语表达和高度相似的梗概。故事库是唯一文案来源，避免把每天的剧本散放到单集目录。
 
 ## 固定素材与视频制作
 

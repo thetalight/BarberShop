@@ -67,6 +67,7 @@ def task_data(root: Path, story_records: list[dict]) -> list[dict]:
         tasks.append({
             "id": ep_id,
             "title": title,
+            "publish_title": (story or {}).get("publish_title") or plan.get("publish_title", ""),
             "intro": (story or {}).get("intro", ""),
             "story_id": (story or {}).get("id"),
             "kind": "系列开场" if (story or {}).get("format") == "series_intro" else "英语情景剧",
@@ -74,7 +75,7 @@ def task_data(root: Path, story_records: list[dict]) -> list[dict]:
             "updated_at": updated,
             "duration_seconds": media_duration(final),
             "shot_count": len(plan.get("shots", [])) or len(selected),
-            "selected_count": len(selected),
+            "selected_count": len(selected) or (len(plan.get("shots", [])) if final.is_file() else 0),
             "job_count": len(jobs),
             "jobs": jobs,
             "video_url": f"/media/outputs/{ep_id}/final.mp4" if final.is_file() else None,

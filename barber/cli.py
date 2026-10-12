@@ -111,6 +111,7 @@ def episode_plan(ep_id: str) -> dict:
     if not plan.get("asset_catalogs") or plan["asset_catalogs"][0] != expected_fixed:
         raise PipelineError("人物版必须首先引用系列公共固定素材")
     plan["title"] = story["title"]
+    plan["publish_title"] = story.get("publish_title", "")
     plan["intro"] = story["intro"]
     for shot in plan["shots"]:
         shot["narration"] = narration[shot["id"]]
@@ -811,7 +812,7 @@ def main() -> None:
         elif args.command == "story":
             if args.action == "list":
                 for item in story_catalog.read_catalog(ROOT):
-                    print(f"{item['id']}\t{item['status']}\t{item['title']}\t{item['event_key']}\t{item['premise']}")
+                    print(f"{item['id']}\t{item['status']}\t{item['title']}\t{item.get('publish_title', '')}\t{item['event_key']}\t{item['premise']}")
             elif args.action == "check":
                 findings = (story_catalog.check_candidate(ROOT, story_catalog.load(args.file)) if args.file
                             else story_catalog.audit(ROOT))

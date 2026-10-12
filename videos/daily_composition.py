@@ -205,7 +205,8 @@ def build(story_id: str, project: Path) -> None:
     ep_id=f'ep{data["day"]:03d}_daily'
     episode_dir=ROOT/'episodes'/ep_id
     episode_dir.mkdir(parents=True,exist_ok=True)
-    task={'id':ep_id,'series_id':'xiangwei','story_id':story_id,'title':data['title'],'intro':data['intro'],
+    task={'id':ep_id,'series_id':'xiangwei','story_id':story_id,'title':data['title'],
+          'publish_title':data['publish_title'],'intro':data['intro'],
           'language':'en-US','subtitle_languages':['en','zh-CN'],'source_project':project.relative_to(ROOT).as_posix(),
           'asset_catalogs':['series/xiangwei/assets/fixed.json','series/xiangwei/assets/shot_library.json'],
           'shots':[{'id':s['id'],'start':s['start'],'duration':s['duration'],

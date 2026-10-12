@@ -39,6 +39,7 @@ class SeriesTests(unittest.TestCase):
             self.assertEqual(record["format"], "daily_english")
             self.assertIn(record["status"], {"idea", "scripted", "produced"})
             self.assertTrue(10 <= sum(char.isalnum() for char in record["intro"]) <= 20)
+            self.assertTrue(8 <= len(record["publish_title"]) <= 50)
         draft = copy.deepcopy(self.first)
         draft["intro"] = "太短"
         with self.assertRaises(stories.StoryError):
@@ -51,9 +52,22 @@ class SeriesTests(unittest.TestCase):
         findings = stories.check_candidate(self.root, draft)
         self.assertTrue(any("核心英语表达相同" in item for item in findings))
 
+    def test_every_episode_has_a_distinct_publish_title(self) -> None:
+        self.assertEqual(len({stories.normalize(item["publish_title"]) for item in self.records}), len(self.records))
+        draft = copy.deepcopy(self.first)
+        del draft["publish_title"]
+        with self.assertRaisesRegex(stories.StoryError, "publish_title"):
+            stories.validate(draft)
+        duplicate = copy.deepcopy(self.first)
+        duplicate.update(id="ST031", day=31, title="新的故事", event_key="new_douyin_event",
+                         core_expression="A fresh expression, please.",
+                         premise="一个与已有故事完全不同的日常小事。")
+        self.assertTrue(any("发布标题相同" in reason for reason in stories.check_candidate(self.root, duplicate)))
+
     def test_new_daily_story_can_be_registered_once(self) -> None:
         draft = copy.deepcopy(self.first)
         draft.update(id="ST031", day=31, title="寻找雨伞", intro="顾客的雨伞不见了，父女一起帮忙找。",
+                     publish_title="顾客的雨伞去哪了？父女在店里一起找",
                      event_key="missing_umbrella", core_expression="Where did I put my umbrella?",
                      meaning="我把雨伞放哪了？", variant="Where did I put my keys?",
                      hook="顾客发现雨伞不见了。", premise="顾客在店里找不到雨伞，爸爸和女儿帮他寻找。",
@@ -97,6 +111,8 @@ class SeriesTests(unittest.TestCase):
         self.assertEqual(len(data["fixed_assets"]), 10)
         self.assertEqual([item["id"] for item in data["tasks"]], ["ep002_daily", "ep001_daily", "ep000_daily"])
         self.assertEqual(data["tasks"][0]["kind"], "英语情景剧")
+        self.assertEqual(data["tasks"][0]["publish_title"], next(item["publish_title"] for item in self.daily if item["id"] == "ST002"))
+        self.assertEqual(data["tasks"][0]["selected_count"], data["tasks"][0]["shot_count"])
         self.assertEqual(data["tasks"][2]["kind"], "系列开场")
 
     def test_two_episodes_use_their_own_dialogue_and_audio_timing(self) -> None:

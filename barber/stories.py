@@ -118,12 +118,16 @@ def validate(record: dict) -> None:
     story_format = record.get("format", "legacy_emotional")
     if story_format not in {"legacy_emotional", "daily_english", "series_intro"}:
         raise StoryError("format 须为 legacy_emotional、daily_english 或 series_intro")
-    required = COMMON_TEXT + (DAILY_TEXT if story_format == "daily_english"
-                              else ("core_expression", "meaning") if story_format == "series_intro"
+    required = COMMON_TEXT + (DAILY_TEXT + ("publish_title",) if story_format == "daily_english"
+                              else ("core_expression", "meaning", "publish_title") if story_format == "series_intro"
                               else LEGACY_TEXT)
     for field in required:
         if not isinstance(record.get(field), str) or not record[field].strip():
             raise StoryError(f"故事记录缺少非空字段：{field}")
+    if story_format in {"daily_english", "series_intro"}:
+        publish_title = record["publish_title"].strip()
+        if not 8 <= len(publish_title) <= 50 or "\n" in publish_title:
+            raise StoryError("抖音发布标题须为单行 8～50 字")
     intro_length = sum(char.isalnum() for char in record["intro"])
     if not 10 <= intro_length <= 20:
         raise StoryError(f"{record['id']} 的简介须为 10～20 字（不计标点和空格），当前 {intro_length} 字")
@@ -226,6 +230,8 @@ def duplicate_reasons(candidate: dict, other: dict) -> list[str]:
         reasons.append("故事 ID 相同")
     if normalize(candidate.get("title", "")) == normalize(other.get("title", "")):
         reasons.append("标题相同")
+    if candidate.get("publish_title") and normalize(candidate["publish_title"]) == normalize(other.get("publish_title", "")):
+        reasons.append("发布标题相同")
     if candidate.get("event_key") == other.get("event_key"):
         reasons.append("核心事件相同")
     if (candidate.get("format") == other.get("format") == "daily_english"

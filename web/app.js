@@ -33,7 +33,7 @@ function renderStories() {
       (activeFilter === "daily" && story.format === "daily_english") ||
       (activeFilter === "intro" && story.format === "series_intro") ||
       story.status === activeFilter;
-    const haystack = [story.id,story.title,story.intro,story.guest,story.premise,story.reveal,story.event_key,story.hair_request,story.core_expression,story.meaning,story.category,categoryLabel[story.category],...(story.voiceover || []),...(story.dialogue || []).flatMap((line) => [line.en,line.zh]),...(story.participants || []).map((id) => participantLabel[id] || id)].join(" ").toLocaleLowerCase();
+    const haystack = [story.id,story.title,story.publish_title,story.intro,story.guest,story.premise,story.reveal,story.event_key,story.hair_request,story.core_expression,story.meaning,story.category,categoryLabel[story.category],...(story.voiceover || []),...(story.dialogue || []).flatMap((line) => [line.en,line.zh]),...(story.participants || []).map((id) => participantLabel[id] || id)].join(" ").toLocaleLowerCase();
     return status && (category === "all" || story.category === category || (category === "intro" && story.format === "series_intro")) && (!query || haystack.includes(query));
   });
   $("#storyResult").textContent = `${items.length} / ${dashboard.stories.length}`;
@@ -41,6 +41,7 @@ function renderStories() {
     <article class="story-card">
       <div class="story-top"><span class="story-id">${story.format === "series_intro" ? "序章 · " : story.format === "daily_english" ? `DAY ${String(story.day).padStart(2,"0")} · ` : ""}${escapeHtml(story.id)}</span><span class="badge ${escapeHtml(story.status)}">${escapeHtml(statusLabel[story.status] || story.status)}</span></div>
       <h3>${escapeHtml(story.title)}</h3>
+      ${story.publish_title ? `<p class="publish-title"><span>${story.status === "idea" ? "暂定发布标题" : "抖音发布标题"}</span>${escapeHtml(story.publish_title)}</p>` : ""}
       <p class="story-intro">${escapeHtml(story.intro)}</p>
       ${["daily_english","series_intro"].includes(story.format) ? `<p class="expression">${escapeHtml(story.core_expression)}</p><p class="expression-meaning">${escapeHtml(story.meaning)}</p>` : ""}
       <p>${escapeHtml(story.premise)}</p>
@@ -61,6 +62,7 @@ function showStory(id) {
   $("#storyDetail").innerHTML = `
     <p class="eyebrow">${intro ? "序章 · " : daily ? `DAY ${String(story.day).padStart(2,"0")} · ` : ""}${escapeHtml(story.id)} · ${escapeHtml(statusLabel[story.status] || story.status)}</p>
     <h2>${escapeHtml(story.title)}</h2>
+    ${story.publish_title ? `<div class="detail-publish"><span>${story.status === "idea" ? "暂定发布标题" : "抖音发布标题"}</span><strong>${escapeHtml(story.publish_title)}</strong><button class="copy-title" data-copy-title="${escapeHtml(story.publish_title)}">复制标题</button></div>` : ""}
     <p class="detail-intro">${escapeHtml(story.intro)}</p>
     <div class="detail-meta">${intro || daily ? `${intro ? "系列开场" : escapeHtml(categoryLabel[story.category] || story.category)}　/　${story.setting === "shop" ? "理发店内" : "社区场景"}　/　角色：${escapeHtml((story.participants || []).map((id) => participantLabel[id] || id).join("、"))}` : `顾客：${escapeHtml(story.guest)}　/　发型：${escapeHtml(story.hair_request)}`}</div>
     ${intro || daily ? `<h3>本集核心表达</h3><p class="detail-expression">${escapeHtml(story.core_expression)} <span>${escapeHtml(story.meaning)}</span></p>${daily ? `<p>简单变体：${escapeHtml(story.variant)}</p>` : ""}` : ""}
@@ -87,6 +89,7 @@ function renderTasks() {
       <div class="task-body">
         <div class="task-top"><span class="task-id">${escapeHtml(task.id)}</span><span class="task-kind">${escapeHtml(task.kind)}</span><span class="badge">${escapeHtml(task.status)}</span></div>
         <h3>${escapeHtml(task.title)}</h3>
+        ${task.publish_title ? `<div class="task-publish"><span>抖音发布标题</span><strong>${escapeHtml(task.publish_title)}</strong><button class="copy-title" data-copy-title="${escapeHtml(task.publish_title)}">复制标题</button></div>` : ""}
         ${task.intro ? `<p class="task-intro">${escapeHtml(task.intro)}</p>` : ""}
         <div class="task-facts"><span>${task.duration_seconds ? `${task.duration_seconds} 秒` : "时长待定"}</span><span>${task.selected_count} / ${task.shot_count} 镜已选</span><span>${dateLabel(task.updated_at)}</span></div>
         <div class="task-actions">${task.video_url ? `<button class="primary-button" data-play="${escapeHtml(task.id)}">播放成片</button>` : ""}${task.subtitle_url ? `<a class="ghost-button" href="${escapeHtml(task.subtitle_url)}" download>下载字幕</a>` : ""}</div>
@@ -101,6 +104,13 @@ function renderAssets() {
 }
 
 document.addEventListener("click", (event) => {
+  const copy = event.target.closest("[data-copy-title]");
+  if (copy) {
+    navigator.clipboard.writeText(copy.dataset.copyTitle).then(() => {
+      copy.textContent = "已复制";
+      setTimeout(() => { copy.textContent = "复制标题"; }, 1800);
+    }).catch(() => { copy.textContent = "请选中文字复制"; });
+  }
   const filter = event.target.closest("[data-filter]");
   if (filter) {
     activeFilter = filter.dataset.filter;
