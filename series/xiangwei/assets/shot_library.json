@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "scope": "daily_series_fixed",
+  "aspect_ratio": "9:16",
+  "room_rules": [
+    "理发椅朝向右侧圆镜；不要让镜中出现无法成立的人脸倒影。",
+    "街窗和女儿玩具角在店内同一侧，宽镜头按既定方位呈现。",
+    "同场景的道具、手别和人物服装跨镜头保持连续；动作不同时用硬切或明确的中间姿态。",
+    "资产是身份和机位基底。台词需要具体表演时，从基底编辑表情或姿势，保留脸部与场景。"
+  ],
+  "shots": {
+    "shop_wide": {
+      "purpose": "交代进店、坐下、离开和人物空间关系",
+      "base_asset": "series/xiangwei/assets/locations/US_INT_WIDE.png",
+      "character_references": ["human_barber_v1", "daughter_v1"],
+      "framing": "门口斜拍一把理发椅；女儿在街窗旁玩具角；人物在前 3 秒内入画并开口",
+      "check": "回到全景时在场人物仍在原位置"
+    },
+    "dad_medium": {
+      "purpose": "爸爸提问、示范表达或倾听",
+      "base_asset": "series/xiangwei/assets/shots/dad_medium_listen_v1.jpg",
+      "identity_reference": "human_barber_v1",
+      "framing": "腰部以上；眼神朝顾客，不把圆镜当作清晰反射面",
+      "variants": ["speaking", "listening", "curious", "surprised", "encouraging"]
+    },
+    "dad_close": {
+      "inherits": "dad_medium",
+      "purpose": "追问或听见反转后的反应",
+      "framing": "从中近景裁切至胸部以上，保留眼睛与表情"
+    },
+    "customer_medium": {
+      "purpose": "熟客回答、讲述或做决定",
+      "base_assets": {
+        "retired_regular": "series/xiangwei/assets/shots/retired_regular_medium_listen_v1.jpg"
+      },
+      "identity_references": {
+        "retired_regular": "retired_regular_v1",
+        "commuter_regular": "commuter_regular_v1",
+        "neighbor_owner": "neighbor_owner_v1"
+      },
+      "framing": "腰部以上；顾客视线朝爸爸；其他熟客首次使用时据同一店铺基底补相应固定画面",
+      "variants": ["speaking", "listening", "hesitating", "relieved", "amused"]
+    },
+    "customer_close": {
+      "inherits": "customer_medium",
+      "purpose": "坦白、犹豫、笑点或结果",
+      "framing": "胸部以上；保留顾客手中关键道具时避免裁掉手别信息"
+    },
+    "daughter_reaction": {
+      "purpose": "女儿观察或插话，不要求她每集出现",
+      "base_asset": "series/xiangwei/assets/shots/daughter_reaction_v1.jpg",
+      "identity_reference": "daughter_v1",
+      "framing": "固定玩具角近景；四岁儿童身形和短句反应",
+      "check": "切回宽镜头时她仍在街窗旁玩具角"
+    },
+    "prop_close": {
+      "purpose": "电话、理发椅、预约表或其他推动剧情的道具",
+      "base_asset": "series/xiangwei/assets/locations/US_CHAIR_SIDE.png",
+      "framing": "从固定场景取材；每次标记道具所在手、朝向和前后状态",
+      "check": "道具特写承载新信息，避免无变化的长时间工具展示"
+    }
+  }
+}

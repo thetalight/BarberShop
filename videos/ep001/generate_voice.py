@@ -48,33 +48,46 @@ def duration(path: Path) -> float:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--speaker", help="Regenerate only one speaker, preserving all other recorded lines")
+    parser.add_argument("--force", action="store_true", help="Regenerate matching recordings too")
     args = parser.parse_args()
     if not PYTHON.is_file():
         raise RuntimeError(f"Kokoro Python environment is missing: {PYTHON}")
     episode = story()
-    lines = episode["dialogue"] + [{"speaker": "dad", "en": episode["core_expression"],
-                                     "zh": episode["meaning"]}]
+    lines = episode["dialogue"] + [
+        {"speaker": "dad", "en": episode["core_expression"], "zh": episode["meaning"]},
+        {"speaker": "dad", "en": episode["variant"], "zh": episode["variant_meaning"]},
+    ]
     OUT.mkdir(parents=True, exist_ok=True)
     manifest_path = OUT / "manifest.json"
     previous = {item["id"]: item for item in json.loads(manifest_path.read_text(encoding="utf-8"))} if manifest_path.exists() else {}
     manifest = []
     for index, line in enumerate(lines, 1):
         key = f"{index:02d}"
-        if args.speaker and line["speaker"] != args.speaker:
-            if key not in previous:
-                raise RuntimeError(f"Missing existing recording for {key}; run without --speaker first")
-            manifest.append(previous[key])
-            continue
         settings = VOICES[line["speaker"]]
-        voice, speed = settings["voice_id"], settings["speed"]
+        voice, speed = settings["voice_id"], line.get("voice_speed", settings["speed"])
+        pitch = settings.get("pitch_shift", 1.0)
+        existing = previous.get(key)
+        if args.speaker and line["speaker"] != args.speaker:
+            if not existing or existing["en"] != line["en"] or existing["zh"] != line["zh"]:
+                raise RuntimeError(f"Recording {key} is stale; run without --speaker")
+            manifest.append(existing)
+            continue
+        if (not args.force and existing and existing["en"] == line["en"]
+                and existing["zh"] == line["zh"] and existing["voice"] == voice
+                and existing.get("pitch_shift", 1.0) == pitch
+                and existing.get("speed", settings["speed"]) == speed
+                and (PROJECT / existing["path"]).is_file()):
+            manifest.append(existing)
+            print(f"{key}: reused {line['en']}", flush=True)
+            continue
         raw = OUT / f"{key}.raw.wav"
         wav = OUT / f"{key}.wav"
         cli = ["node", CLI] if CLI else ["npx", "--yes", f"hyperframes@{PIN}"]
         env = dict(os.environ, HYPERFRAMES_PYTHON=str(PYTHON))
         subprocess.run(cli + ["tts", line["en"], "--voice", voice, "--speed", str(speed),
                               "-o", str(raw)], env=env, check=True)
-        target = previous.get(key, {}).get("duration") if previous.get(key, {}).get("en") == line["en"] else None
-        pitch = settings.get("pitch_shift", 1.0)
+        target = (existing.get("duration") if existing and existing.get("en") == line["en"]
+                  and existing.get("speed", settings["speed"]) == speed else None)
         filters = []
         if pitch != 1.0 or target and duration(raw) > target:
             tempo = max(1.0, duration(raw) / target * 1.02) if target else 1.0
@@ -96,7 +109,8 @@ def main() -> None:
         if seconds < 0.25:
             raise RuntimeError(f"Voice synthesis produced no audio: {key}")
         manifest.append({"id": key, "speaker": line["speaker"], "en": line["en"], "zh": line["zh"],
-                         "voice": voice, "pitch_shift": pitch, "duration": round(seconds, 3), "path": str(wav.relative_to(PROJECT))})
+                         "voice": voice, "speed": speed, "pitch_shift": pitch,
+                         "duration": round(seconds, 3), "path": str(wav.relative_to(PROJECT))})
         print(f"{key}: {seconds:.2f}s {voice} {line['en']}", flush=True)
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

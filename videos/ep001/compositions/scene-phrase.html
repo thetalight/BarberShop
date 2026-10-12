@@ -1,14 +1,17 @@
 <!doctype html><html lang="en"><body><template>
 <style>
 #scene-phrase-root{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;background:#251f18}
-#scene-phrase-root img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;transform-origin:50% 50%;will-change:transform}
+#scene-phrase-root img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform-origin:50% 50%;will-change:transform,opacity}
+#scene-phrase-root img:first-child{opacity:1}
 </style>
-<div id="scene-phrase-root" data-composition-id="scene-phrase" data-width="1080" data-height="1920" data-duration="4.800" data-layout-allow-overflow>
-  <img src="assets/stills/05_dad_hurries-daughter.jpg" alt="phrase with daughter still at the toy shelf">
-</div>
+<div id="scene-phrase-root" data-composition-id="scene-phrase" data-width="1080" data-height="1920" data-duration="9.000" data-layout-allow-overflow><img id="scene-phrase-shot-0" src="assets/motion/chair-invite-daughter.jpg" alt="phrase shot 1"></div>
 <script>(function(){
-const tl=gsap.timeline({paused:true});
-tl.fromTo("#scene-phrase-root img",{scale:1.06,x:0,y:0},{scale:1.03,x:6,y:3,duration:4.800,ease:"sine.inOut"},0);
+const poses=[{"at": 0, "scale": 1.03, "x": 0, "y": 0}], tl=gsap.timeline({paused:true});
+poses.forEach((p,i)=>{
+ const id="#scene-phrase-shot-"+i;
+ const until=i+1<poses.length?poses[i+1].at:9.000;
+ tl.fromTo(id,{scale:p.scale,x:p.x,y:p.y},{scale:p.scale+.012,x:p.x+3,y:p.y-3,duration:Math.max(.1,until-p.at),ease:"sine.inOut",immediateRender:false},p.at);
+ if(i){tl.set("#scene-phrase-shot-"+(i-1),{opacity:0},p.at);tl.set(id,{opacity:1},p.at);}
+});
 window.__timelines["scene-phrase"]=tl;
-})();</script>
-</template></body></html>
+})();</script></template></body></html>

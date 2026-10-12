@@ -2,28 +2,33 @@
   {
     "id": "01",
     "speaker": "retired_regular",
-    "en": "Can you fit me in? I have a date tonight.",
-    "zh": "能给我加个号吗？我今晚有个约会。",
+    "en": "I have a date tonight.",
+    "zh": "我今晚有个约会。",
     "voice": "am_adam",
-    "duration": 2.432,
+    "speed": 0.72,
+    "pitch_shift": 1.0,
+    "duration": 1.813,
     "path": "assets/voice/01.wav"
   },
   {
     "id": "02",
     "speaker": "dad",
-    "en": "With whom?",
-    "zh": "和谁？",
+    "en": "Who's it with?",
+    "zh": "和谁约会？",
     "voice": "am_michael",
-    "duration": 1.003,
+    "pitch_shift": 1.0,
+    "duration": 1.067,
     "path": "assets/voice/02.wav"
   },
   {
     "id": "03",
     "speaker": "retired_regular",
-    "en": "My wife. Well... I haven't asked her yet.",
-    "zh": "我太太。其实……我还没问她。",
+    "en": "My wife. I haven't asked her yet.",
+    "zh": "我太太。但我还没问她。",
     "voice": "am_adam",
-    "duration": 2.261,
+    "speed": 0.74,
+    "pitch_shift": 1.0,
+    "duration": 2.411,
     "path": "assets/voice/03.wav"
   },
   {
@@ -78,7 +83,9 @@
     "en": "She said, 'Be on time.'",
     "zh": "她说：“别迟到。”",
     "voice": "am_adam",
-    "duration": 1.429,
+    "speed": 0.78,
+    "pitch_shift": 1.0,
+    "duration": 1.792,
     "path": "assets/voice/09.wav"
   },
   {
@@ -98,5 +105,15 @@
     "voice": "am_michael",
     "duration": 1.728,
     "path": "assets/voice/11.wav"
+  },
+  {
+    "id": "12",
+    "speaker": "dad",
+    "en": "How about coffee tomorrow?",
+    "zh": "明天喝咖啡怎么样？",
+    "voice": "am_michael",
+    "pitch_shift": 1.0,
+    "duration": 1.877,
+    "path": "assets/voice/12.wav"
   }
 ]

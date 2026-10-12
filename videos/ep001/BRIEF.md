@@ -7,7 +7,7 @@ destination: short-video
 aspect: 1080x1920
 language: en-US speech, en+zh subtitles
 audience: 想跟着日常情景剧学英语的中文观众
-length: 29.46s
+length: 34.97s
 ---
 
 ## Source
@@ -31,3 +31,9 @@ length: 29.46s
 女儿从开场就在街窗旁、画面左侧的低矮玩具架处玩红色玩具车。电话响起后，她在同一位置抬头、从架旁探出问话；爸爸展开围布时，她仍在玩具架旁看着。她可以因近景裁切暂时不入画，但不能在玩具角入画的宽镜头里凭空消失。已为全部相关关键姿势制作连续性画面，保持原英语对白、双语字幕和时长。
 
 修订版导出到 `renders/ep001-daughter-continuity.mp4`，历史任务的交付文件更新为 `../../outputs/ep001_daily/final.mp4`。
+
+## 2026-10-12 dialogue and learning pass
+
+保留约会故事，开头缩为“我今晚有个约会”，追问改成更自然的 `Who's it with?`。根据实际英文配音时长重建镜头、字幕和停顿，总时长 34.967 秒。追问、坦白、惊讶和鼓励使用说话人近景与听者反应；通话固定右手拿电话，女儿在玩具角探头。结尾爸爸指向椅子，米勒爷爷准备入座。口语卡先跟读 `How about dinner tonight?`，再换词练习 `How about coffee tomorrow?`。
+
+`generate_voice.py` 可复用未改动的配音；`build_composition.py` 从 JSONL 和 WAV 时长重建全部七段有限动画，不再覆盖成单图推拉。`timing.json`、字幕与教学卡也同步生成。导出文件以 `../../outputs/ep001_daily/final.mp4` 为准。

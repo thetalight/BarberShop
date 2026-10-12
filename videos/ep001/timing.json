@@ -2,88 +2,106 @@
   "scenes": [
     [
       "arrival",
-      0.0,
-      2.972,
-      "01_miller_arrives-daughter.jpg",
-      1.01,
-      1.05,
-      -9,
-      -4
+      0,
+      2.883,
+      [
+        "assets/stills/01_miller_arrives-daughter.jpg",
+        "assets/motion/arrival-asks-daughter.jpg"
+      ]
     ],
     [
       "confession",
-      2.972,
-      4.244,
-      "02_miller_confesses-daughter.jpg",
-      1.01,
-      1.06,
-      -12,
-      -6
+      2.883,
+      4.878,
+      [
+        "assets/stills/02_miller_confesses-daughter.jpg",
+        "assets/motion/confession-shy-daughter.jpg",
+        "assets/stills/03_dad_encourages-daughter.jpg"
+      ]
     ],
     [
       "surprise",
-      7.216,
-      2.163,
-      "01_miller_arrives-daughter.jpg",
-      1.05,
-      1.09,
-      6,
-      -5
+      7.761,
+      4.634,
+      [
+        "assets/motion/confession-shy-daughter.jpg",
+        "assets/stills/03_dad_encourages-daughter.jpg"
+      ]
     ],
     [
       "encourage",
-      9.379,
-      5.215,
-      "03_dad_encourages-daughter.jpg",
-      1.02,
-      1.08,
-      -10,
-      -7
+      12.395,
+      3.204,
+      [
+        "assets/stills/03_dad_encourages-daughter.jpg",
+        "assets/motion/phone-raise-daughter.jpg"
+      ]
     ],
     [
       "call",
-      14.594,
-      6.016,
-      "04_miller_calls.jpg",
-      1.01,
-      1.08,
-      -8,
-      -9
+      15.599,
+      5.876,
+      [
+        "assets/stills/04_miller_calls-right-hand.jpg",
+        "assets/stills/04_daughter_reacts-right-hand.jpg"
+      ]
     ],
     [
       "answer",
-      20.61,
-      4.049,
-      "05_dad_hurries-daughter.jpg",
-      1.01,
-      1.06,
-      -9,
-      -5
+      21.475,
+      4.492,
+      [
+        "assets/stills/05_dad_hurries-daughter.jpg",
+        "assets/motion/chair-invite-daughter.jpg"
+      ]
     ],
     [
       "phrase",
-      24.659,
-      4.8,
-      "05_dad_hurries-daughter.jpg",
-      1.06,
-      1.03,
-      6,
-      3
+      25.967,
+      9.0,
+      [
+        "assets/motion/chair-invite-daughter.jpg"
+      ]
     ]
+  ],
+  "dialogue_starts": [
+    0.12,
+    2.883,
+    4.5,
+    7.761,
+    10.124,
+    12.395,
+    15.599,
+    19.09,
+    21.475,
+    23.867
+  ],
+  "dialogue_ends": [
+    1.933,
+    3.95,
+    6.911,
+    9.574,
+    11.895,
+    14.699,
+    17.69,
+    20.925,
+    23.267,
+    25.467
   ],
   "voice_starts": [
     0.12,
-    2.972,
-    4.335,
-    7.216,
-    9.379,
-    11.57,
-    14.594,
-    18.335,
-    20.61,
-    22.539,
-    25.079
+    2.883,
+    4.5,
+    7.761,
+    10.124,
+    12.395,
+    15.599,
+    19.09,
+    21.475,
+    23.867,
+    26.567,
+    31.067
   ],
-  "card_start": 24.659,
-  "duration": 29.459
+  "card_start": 25.967,
+  "duration": 34.967
 }

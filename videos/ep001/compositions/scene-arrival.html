@@ -1,18 +1,18 @@
 <!doctype html><html lang="en"><body><template>
 <style>
 #scene-arrival-root{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;background:#251f18}
-#scene-arrival-root img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center center;transform-origin:50% 50%;will-change:transform,opacity}
-#arrival-ask{opacity:0}
+#scene-arrival-root img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform-origin:50% 50%;will-change:transform,opacity}
+#scene-arrival-root img:first-child{opacity:1}
 </style>
-<div id="scene-arrival-root" data-composition-id="scene-arrival" data-width="1080" data-height="1920" data-duration="2.972" data-layout-allow-overflow>
-  <img id="arrival-first" src="assets/stills/01_miller_arrives-daughter.jpg" alt="Mr. Miller arrives while the daughter plays by the toy shelf">
-  <img id="arrival-ask" src="assets/motion/arrival-asks-daughter.jpg" alt="Mr. Miller leans in while the daughter stays by the toy shelf">
-</div>
+<div id="scene-arrival-root" data-composition-id="scene-arrival" data-width="1080" data-height="1920" data-duration="2.883" data-layout-allow-overflow><img id="scene-arrival-shot-0" src="assets/stills/01_miller_arrives-daughter.jpg" alt="arrival shot 1">
+<img id="scene-arrival-shot-1" src="assets/motion/arrival-asks-daughter.jpg" alt="arrival shot 2"></div>
 <script>(function(){
-const tl=gsap.timeline({paused:true});
-tl.fromTo("#arrival-first",{scale:1.01,x:0,y:0},{scale:1.035,x:-5,y:-3,duration:1.22,ease:"sine.inOut"},0);
-tl.fromTo("#arrival-ask",{opacity:0,scale:1.035,x:-5,y:-3},{opacity:1,scale:1.045,x:-7,y:-4,duration:.10,ease:"power2.out",immediateRender:false},1.12);
-tl.to("#arrival-ask",{scale:1.065,x:-11,y:-7,duration:1.751,ease:"sine.inOut"},1.221);
+const poses=[{"at": 0, "scale": 1.02, "x": 0, "y": 0}, {"at": 0.58, "scale": 1.46, "x": 240.4, "y": 420}], tl=gsap.timeline({paused:true});
+poses.forEach((p,i)=>{
+ const id="#scene-arrival-shot-"+i;
+ const until=i+1<poses.length?poses[i+1].at:2.883;
+ tl.fromTo(id,{scale:p.scale,x:p.x,y:p.y},{scale:p.scale+.012,x:p.x+3,y:p.y-3,duration:Math.max(.1,until-p.at),ease:"sine.inOut",immediateRender:false},p.at);
+ if(i){tl.set("#scene-arrival-shot-"+(i-1),{opacity:0},p.at);tl.set(id,{opacity:1},p.at);}
+});
 window.__timelines["scene-arrival"]=tl;
-})();</script>
-</template></body></html>
+})();</script></template></body></html>
