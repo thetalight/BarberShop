@@ -15,10 +15,78 @@ LEGACY_TEXT = ("guest", "hair_request", "reveal", "hair_action")
 DAILY_TEXT = ("core_expression", "meaning", "variant", "hook", "payoff")
 DAILY_CATEGORIES = {"service", "chat", "interaction"}
 DAILY_SETTINGS = {"shop", "community"}
+SHOT_LIBRARY = Path(__file__).resolve().parents[1] / "series/xiangwei/assets/shot_library.json"
 
 
 class StoryError(ValueError):
     pass
+
+
+def executable_takes() -> tuple[set[str], set[tuple[str, str, str, str]]]:
+    try:
+        library = json.loads(SHOT_LIBRARY.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise StoryError(f"镜头库不可读：{SHOT_LIBRARY}: {exc}") from exc
+    shots = library.get("shots")
+    takes = library.get("takes")
+    if not isinstance(shots, dict) or not isinstance(takes, list):
+        raise StoryError("镜头库须包含 shots 和 takes")
+    keys = set()
+    for take in takes:
+        if not isinstance(take, dict) or any(not isinstance(take.get(k), str) or not take[k] for k in ("shot", "speaker", "emotion", "action", "asset")):
+            raise StoryError("镜头库 take 缺少 shot、speaker、emotion、action 或 asset")
+        key = tuple(take[k] for k in ("shot", "speaker", "emotion", "action"))
+        if key in keys or take["shot"] not in shots:
+            raise StoryError(f"镜头库 take 重复或镜头 ID 无效：{key}")
+        asset = (SHOT_LIBRARY.parents[3] / take["asset"]).resolve()
+        if SHOT_LIBRARY.parents[3] not in asset.parents or not asset.is_file():
+            raise StoryError(f"镜头资产不存在：{take['asset']}")
+        keys.add(key)
+    return set(shots), keys
+
+
+def validate_daily_production(record: dict, dialogue: list[dict]) -> None:
+    shots, takes = executable_takes()
+    if record.get("language") != "en-US" or record.get("subtitle_languages") != ["en", "zh-CN"]:
+        raise StoryError("已写剧本须使用英语配音和中英双语字幕")
+    if not isinstance(record.get("variant_meaning"), str) or not record["variant_meaning"].strip():
+        raise StoryError("已写剧本缺少 variant_meaning")
+    for index, line in enumerate(dialogue, 1):
+        for field in ("intent", "emotion", "shot"):
+            if not isinstance(line.get(field), str) or not line[field].strip():
+                raise StoryError(f"第 {index} 句缺少 {field}")
+        pause = line.get("pause_after")
+        if isinstance(pause, bool) or not isinstance(pause, (int, float)) or not 0.3 <= pause <= 3:
+            raise StoryError(f"第 {index} 句 pause_after 须在 0.3～3 秒")
+        action = line.get("action")
+        if not isinstance(action, dict) or any(not isinstance(action.get(k), str) or not action[k].strip() for k in ("id", "description")):
+            raise StoryError(f"第 {index} 句 action 须有 id 和 description")
+        reaction = line.get("listener_reaction")
+        if not isinstance(reaction, dict) or any(not isinstance(reaction.get(k), str) or not reaction[k].strip() for k in ("speaker", "shot", "emotion", "action", "description")):
+            raise StoryError(f"第 {index} 句 listener_reaction 信息不完整")
+        if line["shot"] not in shots or reaction["shot"] not in shots:
+            raise StoryError(f"第 {index} 句使用不存在的镜头 ID")
+        if (line["shot"], line["speaker"], line["emotion"], action["id"]) not in takes:
+            raise StoryError(f"第 {index} 句在镜头库找不到说话镜头资产")
+        if (reaction["shot"], reaction["speaker"], reaction["emotion"], reaction["action"]) not in takes:
+            raise StoryError(f"第 {index} 句在镜头库找不到听者反应资产")
+    plan = record.get("shot_plan")
+    if not isinstance(plan, list) or not plan:
+        raise StoryError("已写剧本缺少 shot_plan")
+    covered = []
+    for item in plan:
+        if not isinstance(item, dict) or not isinstance(item.get("visual"), str) or not item["visual"].strip() or not isinstance(item.get("dialogue_lines"), list) or any(type(number) is not int for number in item["dialogue_lines"]):
+            raise StoryError("shot_plan 须有 visual 和 dialogue_lines")
+        covered.extend(item["dialogue_lines"])
+    if sorted(covered) != list(range(1, len(dialogue) + 1)):
+        raise StoryError("shot_plan 须恰好覆盖每句对话一次")
+    card = record.get("learning_card")
+    if not isinstance(card, dict) or any(k not in card for k in ("duration", "repeat_at", "variant_at", "repeat_prompt", "variant_prompt")):
+        raise StoryError("已写剧本缺少完整 learning_card")
+    if any(isinstance(card[k], bool) or not isinstance(card[k], (int, float)) for k in ("duration", "repeat_at", "variant_at")) or not 0 <= card["repeat_at"] < card["variant_at"] < card["duration"] or card["duration"] - card["variant_at"] < 2.5:
+        raise StoryError("learning_card 时间无效或变体跟读留白不足")
+    if any(not isinstance(card[k], str) or not card[k].strip() for k in ("repeat_prompt", "variant_prompt")):
+        raise StoryError("learning_card 缺少跟读提示")
 
 
 def load(path: Path) -> dict:
@@ -94,6 +162,7 @@ def validate(record: dict) -> None:
             expression = normalize(record["core_expression"])
             if sum(expression in normalize(line["en"]) for line in dialogue) < 2:
                 raise StoryError("已写剧本的日更故事须在英语对话中自然使用两次核心表达")
+            validate_daily_production(record, dialogue)
     if story_format == "series_intro":
         if record["record_type"] != "story" or record["status"] not in {"scripted", "produced"}:
             raise StoryError("系列开场须为已写旁白的正式故事")

@@ -5,16 +5,81 @@
   "title": "约会还没约成",
   "intro": "米勒爷爷想约太太吃饭，却不敢开口。",
   "language": "en-US",
-  "subtitle_languages": ["en", "zh-CN"],
+  "subtitle_languages": [
+    "en",
+    "zh-CN"
+  ],
   "source_project": "videos/ep001",
-  "asset_catalogs": ["series/xiangwei/assets/fixed.json"],
+  "asset_catalogs": [
+    "series/xiangwei/assets/fixed.json",
+    "series/xiangwei/assets/shot_library.json"
+  ],
   "shots": [
-    {"id": "arrival", "start": 0, "duration": 2.972, "asset": "videos/ep001/compositions/scene-arrival.html"},
-    {"id": "confession", "start": 2.972, "duration": 4.244, "asset": "videos/ep001/compositions/scene-confession.html"},
-    {"id": "surprise", "start": 7.216, "duration": 2.163, "asset": "videos/ep001/compositions/scene-surprise.html"},
-    {"id": "encourage", "start": 9.379, "duration": 5.215, "asset": "videos/ep001/compositions/scene-encourage.html"},
-    {"id": "call", "start": 14.594, "duration": 6.016, "asset": "videos/ep001/compositions/scene-call.html"},
-    {"id": "answer", "start": 20.61, "duration": 4.049, "asset": "videos/ep001/compositions/scene-answer.html"},
-    {"id": "phrase", "start": 24.659, "duration": 4.8, "asset": "videos/ep001/compositions/scene-phrase.html"}
+    {
+      "id": "line-01",
+      "start": 0,
+      "duration": 2.883,
+      "asset": "videos/ep001/compositions/scene-line-01.html"
+    },
+    {
+      "id": "line-02",
+      "start": 2.883,
+      "duration": 1.617,
+      "asset": "videos/ep001/compositions/scene-line-02.html"
+    },
+    {
+      "id": "line-03",
+      "start": 4.5,
+      "duration": 3.261,
+      "asset": "videos/ep001/compositions/scene-line-03.html"
+    },
+    {
+      "id": "line-04",
+      "start": 7.761,
+      "duration": 2.363,
+      "asset": "videos/ep001/compositions/scene-line-04.html"
+    },
+    {
+      "id": "line-05",
+      "start": 10.124,
+      "duration": 2.271,
+      "asset": "videos/ep001/compositions/scene-line-05.html"
+    },
+    {
+      "id": "line-06",
+      "start": 12.395,
+      "duration": 3.204,
+      "asset": "videos/ep001/compositions/scene-line-06.html"
+    },
+    {
+      "id": "line-07",
+      "start": 15.599,
+      "duration": 3.491,
+      "asset": "videos/ep001/compositions/scene-line-07.html"
+    },
+    {
+      "id": "line-08",
+      "start": 19.09,
+      "duration": 2.385,
+      "asset": "videos/ep001/compositions/scene-line-08.html"
+    },
+    {
+      "id": "line-09",
+      "start": 21.475,
+      "duration": 2.392,
+      "asset": "videos/ep001/compositions/scene-line-09.html"
+    },
+    {
+      "id": "line-10",
+      "start": 23.867,
+      "duration": 2.1,
+      "asset": "videos/ep001/compositions/scene-line-10.html"
+    },
+    {
+      "id": "recall",
+      "start": 25.967,
+      "duration": 9.0,
+      "asset": "videos/ep001/compositions/scene-recall.html"
+    }
   ]
 }

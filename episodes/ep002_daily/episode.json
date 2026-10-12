@@ -1,0 +1,79 @@
+{
+  "id": "ep002_daily",
+  "series_id": "xiangwei",
+  "story_id": "ST002",
+  "title": "周末钓鱼",
+  "intro": "米勒爷爷钓鱼空手归来，米洛送他玩具鱼。",
+  "language": "en-US",
+  "subtitle_languages": [
+    "en",
+    "zh-CN"
+  ],
+  "source_project": "videos/ep002",
+  "asset_catalogs": [
+    "series/xiangwei/assets/fixed.json",
+    "series/xiangwei/assets/shot_library.json"
+  ],
+  "shots": [
+    {
+      "id": "line-01",
+      "start": 0,
+      "duration": 2.725,
+      "asset": "videos/ep002/compositions/scene-line-01.html"
+    },
+    {
+      "id": "line-02",
+      "start": 2.725,
+      "duration": 1.581,
+      "asset": "videos/ep002/compositions/scene-line-02.html"
+    },
+    {
+      "id": "line-03",
+      "start": 4.306,
+      "duration": 2.213,
+      "asset": "videos/ep002/compositions/scene-line-03.html"
+    },
+    {
+      "id": "line-04",
+      "start": 6.519,
+      "duration": 2.001,
+      "asset": "videos/ep002/compositions/scene-line-04.html"
+    },
+    {
+      "id": "line-05",
+      "start": 8.52,
+      "duration": 2.015,
+      "asset": "videos/ep002/compositions/scene-line-05.html"
+    },
+    {
+      "id": "line-06",
+      "start": 10.535,
+      "duration": 1.687,
+      "asset": "videos/ep002/compositions/scene-line-06.html"
+    },
+    {
+      "id": "line-07",
+      "start": 12.222,
+      "duration": 1.745,
+      "asset": "videos/ep002/compositions/scene-line-07.html"
+    },
+    {
+      "id": "line-08",
+      "start": 13.967,
+      "duration": 2.421,
+      "asset": "videos/ep002/compositions/scene-line-08.html"
+    },
+    {
+      "id": "line-09",
+      "start": 16.388,
+      "duration": 1.993,
+      "asset": "videos/ep002/compositions/scene-line-09.html"
+    },
+    {
+      "id": "recall",
+      "start": 18.381,
+      "duration": 8.0,
+      "asset": "videos/ep002/compositions/scene-recall.html"
+    }
+  ]
+}

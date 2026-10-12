@@ -1,0 +1,374 @@
+{
+  "story_id": "ST002",
+  "scenes": [
+    {
+      "id": "line-01",
+      "start": 0,
+      "duration": 2.725,
+      "assets": [
+        "series/xiangwei/assets/shots/dad_medium_listen_v1.jpg",
+        "series/xiangwei/assets/shots/retired_regular_wet_hat_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/c7fdb8c06c15-dad_medium_listen_v1.jpg",
+          "at": 0,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "src": "assets/takes/4adb0ffb608c-retired_regular_wet_hat_v1.jpg",
+          "at": 2.055,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "shot": "dad_medium",
+      "emotion": "warm",
+      "action": "notices_wet_hat",
+      "listener_reaction": {
+        "speaker": "retired_regular",
+        "shot": "customer_medium",
+        "emotion": "wet",
+        "action": "shows_hat",
+        "description": "Miller looks at hat"
+      }
+    },
+    {
+      "id": "line-02",
+      "start": 2.725,
+      "duration": 1.581,
+      "assets": [
+        "series/xiangwei/assets/shots/retired_regular_wet_hat_v1.jpg",
+        "series/xiangwei/assets/shots/dad_medium_listen_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/4adb0ffb608c-retired_regular_wet_hat_v1.jpg",
+          "at": 0,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "src": "assets/takes/c7fdb8c06c15-dad_medium_listen_v1.jpg",
+          "at": 0.911,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "shot": "customer_medium",
+      "emotion": "dry_humor",
+      "action": "lifts_wet_hat",
+      "listener_reaction": {
+        "speaker": "dad",
+        "shot": "dad_medium",
+        "emotion": "curious",
+        "action": "leans_in",
+        "description": "dad leans in"
+      }
+    },
+    {
+      "id": "line-03",
+      "start": 4.306,
+      "duration": 2.213,
+      "assets": [
+        "series/xiangwei/assets/shots/dad_medium_listen_v1.jpg",
+        "series/xiangwei/assets/shots/retired_regular_wet_hat_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/c7fdb8c06c15-dad_medium_listen_v1.jpg",
+          "at": 0,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "src": "assets/takes/4adb0ffb608c-retired_regular_wet_hat_v1.jpg",
+          "at": 1.593,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "shot": "dad_medium",
+      "emotion": "curious",
+      "action": "points_at_hat",
+      "listener_reaction": {
+        "speaker": "retired_regular",
+        "shot": "customer_medium",
+        "emotion": "wet",
+        "action": "nods",
+        "description": "Miller nods"
+      }
+    },
+    {
+      "id": "line-04",
+      "start": 6.519,
+      "duration": 2.001,
+      "assets": [
+        "series/xiangwei/assets/shots/retired_regular_wet_hat_v1.jpg",
+        "series/xiangwei/assets/shots/daughter_peeks_toy_shelf_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/4adb0ffb608c-retired_regular_wet_hat_v1.jpg",
+          "at": 0,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "src": "assets/takes/a36070a5fd01-daughter_peeks_toy_shelf_v1.jpg",
+          "at": 1.231,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "shot": "customer_medium",
+      "emotion": "resigned",
+      "action": "shows_empty_hand",
+      "listener_reaction": {
+        "speaker": "daughter",
+        "shot": "daughter_reaction",
+        "emotion": "eager",
+        "action": "looks_up",
+        "description": "daughter looks up"
+      }
+    },
+    {
+      "id": "line-05",
+      "start": 8.52,
+      "duration": 2.015,
+      "assets": [
+        "series/xiangwei/assets/shots/daughter_reaction_v1.jpg",
+        "series/xiangwei/assets/shots/retired_regular_toy_fish_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/8fc7a6973341-daughter_reaction_v1.jpg",
+          "at": 0,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "src": "assets/takes/c95948d5cd41-retired_regular_toy_fish_v1.jpg",
+          "at": 1.295,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "shot": "daughter_reaction",
+      "emotion": "eager",
+      "action": "looks_up_from_toy_car",
+      "listener_reaction": {
+        "speaker": "retired_regular",
+        "shot": "customer_medium",
+        "emotion": "amused",
+        "action": "smiles",
+        "description": "Miller smiles"
+      }
+    },
+    {
+      "id": "line-06",
+      "start": 10.535,
+      "duration": 1.687,
+      "assets": [
+        "series/xiangwei/assets/shots/retired_regular_toy_fish_v1.jpg",
+        "series/xiangwei/assets/shots/dad_medium_surprised_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/c95948d5cd41-retired_regular_toy_fish_v1.jpg",
+          "at": 0,
+          "scale": 1.12,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "src": "assets/takes/5efebd6fae8a-dad_medium_surprised_v1.jpg",
+          "at": 1.017,
+          "scale": 1.12,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "shot": "prop_close",
+      "emotion": "amused",
+      "action": "shows_toy_fish",
+      "listener_reaction": {
+        "speaker": "dad",
+        "shot": "dad_close",
+        "emotion": "surprised",
+        "action": "recognizes_toy",
+        "description": "dad recognizes toy"
+      }
+    },
+    {
+      "id": "line-07",
+      "start": 12.222,
+      "duration": 1.745,
+      "assets": [
+        "series/xiangwei/assets/shots/dad_medium_surprised_v1.jpg",
+        "series/xiangwei/assets/shots/daughter_toy_fish_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/5efebd6fae8a-dad_medium_surprised_v1.jpg",
+          "at": 0,
+          "scale": 1.12,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "src": "assets/takes/79255e4a4c5f-daughter_toy_fish_v1.jpg",
+          "at": 0.975,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "shot": "dad_close",
+      "emotion": "surprised",
+      "action": "laughs_at_toy",
+      "listener_reaction": {
+        "speaker": "daughter",
+        "shot": "daughter_reaction",
+        "emotion": "playful",
+        "action": "studies_fish",
+        "description": "daughter takes the offered toy fish and studies it"
+      }
+    },
+    {
+      "id": "line-08",
+      "start": 13.967,
+      "duration": 2.421,
+      "assets": [
+        "series/xiangwei/assets/shots/daughter_toy_fish_v1.jpg",
+        "series/xiangwei/assets/shots/retired_regular_wet_hat_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/79255e4a4c5f-daughter_toy_fish_v1.jpg",
+          "at": 0,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "src": "assets/takes/4adb0ffb608c-retired_regular_wet_hat_v1.jpg",
+          "at": 1.551,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "shot": "daughter_reaction",
+      "emotion": "playful",
+      "action": "asks_toy_fish",
+      "listener_reaction": {
+        "speaker": "retired_regular",
+        "shot": "customer_medium",
+        "emotion": "amused",
+        "action": "grins",
+        "description": "Miller grins"
+      }
+    },
+    {
+      "id": "line-09",
+      "start": 16.388,
+      "duration": 1.993,
+      "assets": [
+        "series/xiangwei/assets/shots/retired_regular_wet_hat_v1.jpg",
+        "series/xiangwei/assets/shots/dad_medium_listen_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/4adb0ffb608c-retired_regular_wet_hat_v1.jpg",
+          "at": 0,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "src": "assets/takes/c7fdb8c06c15-dad_medium_listen_v1.jpg",
+          "at": 1.273,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "shot": "customer_medium",
+      "emotion": "self_deprecating",
+      "action": "holds_hat_only",
+      "listener_reaction": {
+        "speaker": "dad",
+        "shot": "dad_medium",
+        "emotion": "warm",
+        "action": "smiles",
+        "description": "dad smiles while the daughter keeps the fish"
+      }
+    },
+    {
+      "id": "recall",
+      "start": 18.381,
+      "duration": 8.0,
+      "assets": [
+        "series/xiangwei/assets/shots/retired_regular_wet_hat_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/4adb0ffb608c-retired_regular_wet_hat_v1.jpg",
+          "at": 0,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ]
+    }
+  ],
+  "dialogue_starts": [
+    0.12,
+    2.725,
+    4.306,
+    6.519,
+    8.52,
+    10.535,
+    12.222,
+    13.967,
+    16.388
+  ],
+  "dialogue_ends": [
+    2.275,
+    3.856,
+    6.119,
+    7.97,
+    10.035,
+    11.772,
+    13.417,
+    15.738,
+    17.881
+  ],
+  "voice_starts": [
+    0.12,
+    2.725,
+    4.306,
+    6.519,
+    8.52,
+    10.535,
+    12.222,
+    13.967,
+    16.388,
+    18.931,
+    22.981
+  ],
+  "card_start": 18.381,
+  "duration": 26.381
+}

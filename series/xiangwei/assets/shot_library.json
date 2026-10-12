@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "scope": "daily_series_fixed",
   "aspect_ratio": "9:16",
   "room_rules": [
@@ -12,7 +12,10 @@
     "shop_wide": {
       "purpose": "交代进店、坐下、离开和人物空间关系",
       "base_asset": "series/xiangwei/assets/locations/US_INT_WIDE.png",
-      "character_references": ["human_barber_v1", "daughter_v1"],
+      "character_references": [
+        "human_barber_v1",
+        "daughter_v1"
+      ],
       "framing": "门口斜拍一把理发椅；女儿在街窗旁玩具角；人物在前 3 秒内入画并开口",
       "check": "回到全景时在场人物仍在原位置"
     },
@@ -21,7 +24,13 @@
       "base_asset": "series/xiangwei/assets/shots/dad_medium_listen_v1.jpg",
       "identity_reference": "human_barber_v1",
       "framing": "腰部以上；眼神朝顾客，不把圆镜当作清晰反射面",
-      "variants": ["speaking", "listening", "curious", "surprised", "encouraging"]
+      "variants": [
+        "speaking",
+        "listening",
+        "curious",
+        "surprised",
+        "encouraging"
+      ]
     },
     "dad_close": {
       "inherits": "dad_medium",
@@ -39,7 +48,13 @@
         "neighbor_owner": "neighbor_owner_v1"
       },
       "framing": "腰部以上；顾客视线朝爸爸；其他熟客首次使用时据同一店铺基底补相应固定画面",
-      "variants": ["speaking", "listening", "hesitating", "relieved", "amused"]
+      "variants": [
+        "speaking",
+        "listening",
+        "hesitating",
+        "relieved",
+        "amused"
+      ]
     },
     "customer_close": {
       "inherits": "customer_medium",
@@ -59,5 +74,377 @@
       "framing": "从固定场景取材；每次标记道具所在手、朝向和前后状态",
       "check": "道具特写承载新信息，避免无变化的长时间工具展示"
     }
-  }
+  },
+  "takes": [
+    {
+      "shot": "customer_medium",
+      "speaker": "retired_regular",
+      "emotion": "hopeful",
+      "action": "enters_with_phone_right",
+      "asset": "series/xiangwei/assets/shots/retired_regular_hesitating_right_phone_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "dad_medium",
+      "speaker": "dad",
+      "emotion": "curious",
+      "action": "looks_up",
+      "asset": "series/xiangwei/assets/shots/dad_medium_listen_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "dad_medium",
+      "speaker": "dad",
+      "emotion": "curious",
+      "action": "turns_to_customer",
+      "asset": "series/xiangwei/assets/shots/dad_medium_listen_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "customer_close",
+      "speaker": "retired_regular",
+      "emotion": "hesitant",
+      "action": "hesitates",
+      "asset": "series/xiangwei/assets/shots/retired_regular_hesitating_right_phone_v1.jpg",
+      "scale": 1.12,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "customer_close",
+      "speaker": "retired_regular",
+      "emotion": "shy",
+      "action": "looks_at_phone_right",
+      "asset": "series/xiangwei/assets/shots/retired_regular_hesitating_right_phone_v1.jpg",
+      "scale": 1.12,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "dad_close",
+      "speaker": "dad",
+      "emotion": "surprised",
+      "action": "registers_surprise",
+      "asset": "series/xiangwei/assets/shots/dad_medium_surprised_v1.jpg",
+      "scale": 1.12,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "dad_close",
+      "speaker": "dad",
+      "emotion": "surprised",
+      "action": "raises_eyebrows",
+      "asset": "series/xiangwei/assets/shots/dad_medium_surprised_v1.jpg",
+      "scale": 1.12,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "customer_close",
+      "speaker": "retired_regular",
+      "emotion": "nervous",
+      "action": "awkward_smile",
+      "asset": "series/xiangwei/assets/shots/retired_regular_hesitating_right_phone_v1.jpg",
+      "scale": 1.12,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "customer_close",
+      "speaker": "retired_regular",
+      "emotion": "nervous",
+      "action": "holds_phone_right",
+      "asset": "series/xiangwei/assets/shots/retired_regular_hesitating_right_phone_v1.jpg",
+      "scale": 1.12,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "dad_medium",
+      "speaker": "dad",
+      "emotion": "warm",
+      "action": "listens",
+      "asset": "series/xiangwei/assets/shots/dad_medium_listen_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "dad_medium",
+      "speaker": "dad",
+      "emotion": "encouraging",
+      "action": "gestures_toward_phone",
+      "asset": "series/xiangwei/assets/shots/dad_encourages_miller_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "customer_medium",
+      "speaker": "retired_regular",
+      "emotion": "decisive",
+      "action": "raises_phone_right",
+      "asset": "series/xiangwei/assets/shots/retired_regular_calls_right_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "customer_medium",
+      "speaker": "retired_regular",
+      "emotion": "hopeful",
+      "action": "phone_at_right_ear",
+      "asset": "series/xiangwei/assets/shots/retired_regular_calls_right_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "daughter_reaction",
+      "speaker": "daughter",
+      "emotion": "eager",
+      "action": "looks_up",
+      "asset": "series/xiangwei/assets/shots/daughter_peeks_toy_shelf_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "daughter_reaction",
+      "speaker": "daughter",
+      "emotion": "eager",
+      "action": "peeks_from_toy_shelf",
+      "asset": "series/xiangwei/assets/shots/daughter_peeks_toy_shelf_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "customer_medium",
+      "speaker": "retired_regular",
+      "emotion": "hopeful",
+      "action": "waits_for_answer",
+      "asset": "series/xiangwei/assets/shots/retired_regular_calls_right_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "customer_close",
+      "speaker": "retired_regular",
+      "emotion": "relieved",
+      "action": "lowers_phone_right",
+      "asset": "series/xiangwei/assets/shots/retired_regular_relieved_right_phone_v1.jpg",
+      "scale": 1.12,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "dad_medium",
+      "speaker": "dad",
+      "emotion": "urgent",
+      "action": "moves_to_chair",
+      "asset": "series/xiangwei/assets/shots/dad_points_chair_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "shop_wide",
+      "speaker": "dad",
+      "emotion": "urgent",
+      "action": "points_to_chair",
+      "asset": "series/xiangwei/assets/shots/dad_points_chair_v1.jpg",
+      "scale": 1.035,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "customer_medium",
+      "speaker": "retired_regular",
+      "emotion": "relieved",
+      "action": "turns_to_sit",
+      "asset": "series/xiangwei/assets/shots/retired_regular_relieved_right_phone_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "dad_medium",
+      "speaker": "dad",
+      "emotion": "warm",
+      "action": "notices_wet_hat",
+      "asset": "series/xiangwei/assets/shots/dad_medium_listen_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "customer_medium",
+      "speaker": "retired_regular",
+      "emotion": "wet",
+      "action": "shows_hat",
+      "asset": "series/xiangwei/assets/shots/retired_regular_wet_hat_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "customer_medium",
+      "speaker": "retired_regular",
+      "emotion": "dry_humor",
+      "action": "lifts_wet_hat",
+      "asset": "series/xiangwei/assets/shots/retired_regular_wet_hat_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "dad_medium",
+      "speaker": "dad",
+      "emotion": "curious",
+      "action": "leans_in",
+      "asset": "series/xiangwei/assets/shots/dad_medium_listen_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "dad_medium",
+      "speaker": "dad",
+      "emotion": "curious",
+      "action": "points_at_hat",
+      "asset": "series/xiangwei/assets/shots/dad_medium_listen_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "customer_medium",
+      "speaker": "retired_regular",
+      "emotion": "wet",
+      "action": "nods",
+      "asset": "series/xiangwei/assets/shots/retired_regular_wet_hat_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "customer_medium",
+      "speaker": "retired_regular",
+      "emotion": "resigned",
+      "action": "shows_empty_hand",
+      "asset": "series/xiangwei/assets/shots/retired_regular_wet_hat_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "daughter_reaction",
+      "speaker": "daughter",
+      "emotion": "eager",
+      "action": "looks_up_from_toy_car",
+      "asset": "series/xiangwei/assets/shots/daughter_reaction_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "customer_medium",
+      "speaker": "retired_regular",
+      "emotion": "amused",
+      "action": "smiles",
+      "asset": "series/xiangwei/assets/shots/retired_regular_toy_fish_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "prop_close",
+      "speaker": "retired_regular",
+      "emotion": "amused",
+      "action": "shows_toy_fish",
+      "asset": "series/xiangwei/assets/shots/retired_regular_toy_fish_v1.jpg",
+      "scale": 1.12,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "dad_close",
+      "speaker": "dad",
+      "emotion": "surprised",
+      "action": "recognizes_toy",
+      "asset": "series/xiangwei/assets/shots/dad_medium_surprised_v1.jpg",
+      "scale": 1.12,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "dad_close",
+      "speaker": "dad",
+      "emotion": "surprised",
+      "action": "laughs_at_toy",
+      "asset": "series/xiangwei/assets/shots/dad_medium_surprised_v1.jpg",
+      "scale": 1.12,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "daughter_reaction",
+      "speaker": "daughter",
+      "emotion": "playful",
+      "action": "studies_fish",
+      "asset": "series/xiangwei/assets/shots/daughter_toy_fish_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "daughter_reaction",
+      "speaker": "daughter",
+      "emotion": "playful",
+      "action": "asks_toy_fish",
+      "asset": "series/xiangwei/assets/shots/daughter_toy_fish_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "customer_medium",
+      "speaker": "retired_regular",
+      "emotion": "amused",
+      "action": "grins",
+      "asset": "series/xiangwei/assets/shots/retired_regular_wet_hat_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "customer_medium",
+      "speaker": "retired_regular",
+      "emotion": "self_deprecating",
+      "action": "holds_hat_only",
+      "asset": "series/xiangwei/assets/shots/retired_regular_wet_hat_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "shot": "dad_medium",
+      "speaker": "dad",
+      "emotion": "warm",
+      "action": "smiles",
+      "asset": "series/xiangwei/assets/shots/dad_medium_listen_v1.jpg",
+      "scale": 1.055,
+      "x": 0,
+      "y": 0
+    }
+  ]
 }

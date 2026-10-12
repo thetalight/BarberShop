@@ -12,7 +12,7 @@ python3 -m barber.web --port 8765
 
 ## 单一故事档案
 
-所有活动故事文字都保存在 **`series/xiangwei/stories.jsonl`**，每行一条 JSON。`ST000` 是已制作的英文旁白系列开场，含逐段英文和中文字幕；`ST001` 是已制作的第一条日更对话视频；`ST002`～`ST030` 是待写对话的日更选题。每条日更记录包含：
+所有活动故事文字都保存在 **`series/xiangwei/stories.jsonl`**，每行一条 JSON。`ST000` 是已制作的英文旁白系列开场，含逐段英文和中文字幕；`ST001`、`ST002` 是已制作的日更对话视频；`ST003`～`ST030` 是待写对话的日更选题。每条日更记录包含：
 
 - `intro`：10～20 字对外简介，不计标点和空格。
 - `category`：`service`（接待与服务）、`chat`（顾客闲聊）或 `interaction`（父女与邻里）。
@@ -21,7 +21,7 @@ python3 -m barber.web --port 8765
 - `participants`、`hook`、`beats`、`payoff`：角色与小事件。
 - `continuity_in`、`continuity_out`：从旧集承接和留给后续的小线索。
 
-选题推进到 `scripted` 或 `produced` 时，必须补 6～10 句 `dialogue`，每句包含 `speaker`、`en`、`zh`。同一条核心表达在对话中自然出现两次。添加新故事前执行：
+选题推进到 `scripted` 或 `produced` 时，必须补 6～10 句 `dialogue`，每句包含 `speaker`、`en`、`zh`、镜头、情绪、动作、听者反应和停顿，并补全 `shot_plan` 与 `learning_card`。镜头动作必须在全局镜头库中命中具体资产。同一条核心表达在对话中自然出现两次。添加新故事前执行：
 
 ```bash
 python3 -m barber.cli story list
@@ -40,4 +40,13 @@ python3 -m barber.cli story register --file /tmp/new_story.json
 python3 -m barber.cli assets
 ```
 
-新系列目标为 40～60 秒：前 3 秒进入问题；中间用 6～10 句英语对话完成一件小事；结尾留笑点或人物回应；最后 3～5 秒显示核心句、中文意思并留跟读停顿。每条视频都用英语配音与中英双语字幕。系列开场的可复用制作项目在 `videos/intro/`，第一条日更对话视频的制作项目在 `videos/ep001/`。生成的成片位于本地 `outputs/` 或项目的 `renders/`，不纳入代码仓库；模型、工具运行环境、缓存和测试用镜头同样不纳入。`config/project.json` 中的模型及可执行文件路径需按运行机器配置。
+视频前 3 秒进入问题，用 6～10 句英语对话完成一件小事，最后保留原句与变体各自的跟读时间。时长由实际配音决定，目前第一、二集约 35 秒、26 秒。系列开场项目在 `videos/intro/`，日更项目在 `videos/ep001/`、`videos/ep002/`；两集共用 `videos/daily_voice.py` 和 `videos/daily_composition.py`。制作顺序：
+
+```bash
+python3 -m unittest discover -s tests
+python3 videos/ep002/generate_voice.py
+python3 videos/ep002/build_composition.py
+cd videos/ep002 && npm run check && npm run render -- --output renders/ep002-daily.mp4
+```
+
+生成的成片位于本地 `outputs/` 或项目的 `renders/`，不纳入代码仓库。

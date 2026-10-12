@@ -34,7 +34,7 @@ class SeriesTests(unittest.TestCase):
     def test_daily_ideas_have_short_intro_and_single_core_phrase(self) -> None:
         self.assertEqual(len({stories.normalize(item["core_expression"]) for item in self.daily}), 30)
         self.assertEqual(next(item for item in self.daily if item["id"] == "ST001")["status"], "produced")
-        self.assertEqual(sum(item["status"] == "idea" for item in self.daily), 29)
+        self.assertEqual(sum(item["status"] == "idea" for item in self.daily), 28)
         for record in self.daily:
             self.assertEqual(record["format"], "daily_english")
             self.assertIn(record["status"], {"idea", "scripted", "produced"})
@@ -66,17 +66,27 @@ class SeriesTests(unittest.TestCase):
         with self.assertRaises(stories.StoryError):
             stories.register(self.root, path)
 
-    def test_scripted_status_requires_dialogue_and_repetition(self) -> None:
-        draft = copy.deepcopy(self.first)
-        draft["status"] = "scripted"
-        with self.assertRaises(stories.StoryError):
-            stories.validate(draft)
-        draft["dialogue"] = [{"speaker": "dad", "en": "Good morning.", "zh": "早上好。"} for _ in range(6)]
-        with self.assertRaises(stories.StoryError):
-            stories.validate(draft)
-        draft["dialogue"][0]["en"] = draft["core_expression"]
-        draft["dialogue"][3]["en"] = draft["core_expression"]
-        stories.validate(draft)
+    def test_scripted_story_requires_executable_direction(self) -> None:
+        scripted = copy.deepcopy(next(item for item in self.daily if item["id"] == "ST002"))
+        stories.validate(scripted)
+        for field in ("shot_plan", "learning_card"):
+            broken = copy.deepcopy(scripted)
+            del broken[field]
+            with self.subTest(field=field), self.assertRaises(stories.StoryError):
+                stories.validate(broken)
+        for field in ("pause_after", "listener_reaction", "action"):
+            broken = copy.deepcopy(scripted)
+            del broken["dialogue"][0][field]
+            with self.subTest(field=field), self.assertRaises(stories.StoryError):
+                stories.validate(broken)
+        broken = copy.deepcopy(scripted)
+        broken["dialogue"][0]["shot"] = "nonexistent_shot"
+        with self.assertRaisesRegex(stories.StoryError, "不存在的镜头"):
+            stories.validate(broken)
+        broken = copy.deepcopy(scripted)
+        broken["dialogue"][0]["emotion"] = "unsupported_expression"
+        with self.assertRaisesRegex(stories.StoryError, "镜头资产"):
+            stories.validate(broken)
 
     def test_dashboard_shows_intro_and_daily_queue(self) -> None:
         data = web.dashboard_data()
@@ -85,9 +95,26 @@ class SeriesTests(unittest.TestCase):
         self.assertEqual(data["stories"][0]["id"], "ST000")
         self.assertEqual(data["stories"][0]["language"], "en-US")
         self.assertEqual(len(data["fixed_assets"]), 10)
-        self.assertEqual([item["id"] for item in data["tasks"]], ["ep001_daily", "ep000_daily"])
+        self.assertEqual([item["id"] for item in data["tasks"]], ["ep002_daily", "ep001_daily", "ep000_daily"])
         self.assertEqual(data["tasks"][0]["kind"], "英语情景剧")
-        self.assertEqual(data["tasks"][1]["kind"], "系列开场")
+        self.assertEqual(data["tasks"][2]["kind"], "系列开场")
+
+    def test_two_episodes_use_their_own_dialogue_and_audio_timing(self) -> None:
+        for sid, project in (("ST001", "ep001"), ("ST002", "ep002")):
+            with self.subTest(story=sid):
+                story = next(item for item in self.daily if item["id"] == sid)
+                directory = cli.ROOT / "videos" / project
+                timing = json.loads((directory / "timing.json").read_text())
+                voices = json.loads((directory / "assets/voice/manifest.json").read_text())
+                task = json.loads((cli.ROOT / "episodes" / f"{project}_daily/episode.json").read_text())
+                self.assertEqual(len(voices), len(story["dialogue"]) + 2)
+                self.assertEqual(len(timing["scenes"]), len(story["dialogue"]) + 1)
+                self.assertEqual([scene["shot"] for scene in timing["scenes"][:-1]],
+                                 [line["shot"] for line in story["dialogue"]])
+                self.assertAlmostEqual(task["shots"][-1]["start"] + task["shots"][-1]["duration"],
+                                       timing["duration"], places=3)
+                self.assertEqual(len(timing["voice_starts"]), len(voices))
+                self.assertTrue(all((directory / voice["path"]).is_file() for voice in voices))
 
     def test_history_recognizes_daily_episode_only(self) -> None:
         daily = self.root / "episodes/ep001_daily"

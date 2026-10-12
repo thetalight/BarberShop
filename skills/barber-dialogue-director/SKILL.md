@@ -10,7 +10,7 @@ description: 为“老爸的英语理发店”日更英语情景剧设计或修�
 ## 交付标准
 
 - 开头尽快给出人物需求、悬念或小冲突。每集一件能通过对话解决的小事，一个核心英语表达，最多一个简单变体。
-- 每句 `dialogue` 保留 `speaker`、`en`、`zh`，并指定 `intent`、`emotion`、`action`、`shot`、`listener_reaction`、`pause_after`。镜头标识从镜头库选择，单集需要特殊机位时注明原因。
+- 每句 `dialogue` 保留 `speaker`、`en`、`zh`，并指定 `intent`、`emotion`、`action: {id, description}`、`shot`、`listener_reaction: {speaker, shot, emotion, action, description}`、`pause_after`。镜头库中必须有与说话镜头和听者反应完全匹配的 `(shot, speaker, emotion, action)` take；没有就先补资产并登记，不能悄悄退回通用微笑图。
 - 对话交替时让观众认出谁说话；坦白、误解、决定和结果后至少给一次可见的听者反应。动作须推动台词含义，不用持续推拉代替表演。
 - 锁定人物外貌、服装、店铺方位及道具左右手。女儿已在店内时，近景裁切可以让她暂时不入画；回到宽镜头要保持她的既定位置。跨姿势变化用有动机的动作或清晰切镜，不制造短暂重影。
 
@@ -20,4 +20,4 @@ description: 为“老爸的英语理发店”日更英语情景剧设计或修�
 
 更新对应 JSONL 记录中的 `dialogue`、`beats`、`shot_plan`、`continuity_out`。单集 `STORYBOARD.md` 只写画面执行和资产路径，不复制台词。完成后给出简短逐句镜头表：台词序号｜说话人｜景别｜动作｜听者反应｜连续性注意点。
 
-若说话人不清、反应缺失或道具跳变，先改镜头顺序或补关键姿态；再用实际音频时长重建时间轴并抽帧检查。不要用口型同步掩盖分镜问题。
+若说话人不清、反应缺失或道具跳变，先改镜头顺序或补关键姿态；再运行 `python3 videos/epNNN/generate_voice.py` 和 `python3 videos/epNNN/build_composition.py`，用实际音频时长重建时间轴并抽帧检查。不要用口型同步掩盖分镜问题。

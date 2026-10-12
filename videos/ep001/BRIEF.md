@@ -37,3 +37,7 @@ length: 34.97s
 保留约会故事，开头缩为“我今晚有个约会”，追问改成更自然的 `Who's it with?`。根据实际英文配音时长重建镜头、字幕和停顿，总时长 34.967 秒。追问、坦白、惊讶和鼓励使用说话人近景与听者反应；通话固定右手拿电话，女儿在玩具角探头。结尾爸爸指向椅子，米勒爷爷准备入座。口语卡先跟读 `How about dinner tonight?`，再换词练习 `How about coffee tomorrow?`。
 
 `generate_voice.py` 可复用未改动的配音；`build_composition.py` 从 JSONL 和 WAV 时长重建全部七段有限动画，不再覆盖成单图推拉。`timing.json`、字幕与教学卡也同步生成。导出文件以 `../../outputs/ep001_daily/final.mp4` 为准。
+
+## 2026-10-12 executable shot-library pass
+
+第一集与第二集改用同一套 `../daily_voice.py`、`../daily_composition.py`。每句 `shot`、`emotion`、`action.id` 与 `listener_reaction` 必须在全局镜头库命中具体素材；第一集现为十句对白镜头加一段学习卡，时长 34.967 秒。补爸爸惊讶、米勒右手持手机时的犹豫与释然画面；原先左手手机图不再使用。任务页镜头时间由构建脚本同步更新。

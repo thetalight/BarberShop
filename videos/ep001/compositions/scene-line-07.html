@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><body><template>
+<style>#scene-line-07-root{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;background:#251f18}
+#scene-line-07-root img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform-origin:50% 50%}
+#scene-line-07-root img:first-child{opacity:1}</style>
+<div id="scene-line-07-root" data-composition-id="scene-line-07" data-width="1080" data-height="1920" data-duration="3.491" data-layout-allow-overflow><img id="scene-line-07-shot-0" src="../assets/takes/aaf308bc1674-retired_regular_calls_right_v1.jpg" alt="line-07 1">
+<img id="scene-line-07-shot-1" src="../assets/takes/a36070a5fd01-daughter_peeks_toy_shelf_v1.jpg" alt="line-07 2"></div>
+<script>(function(){const poses=[{"at": 0, "scale": 1.055, "x": 0.0, "y": 0.0}, {"at": 1.871, "scale": 1.055, "x": 0.0, "y": 0.0}],tl=gsap.timeline({paused:true});
+poses.forEach((p,i)=>{const id="#scene-line-07-shot-"+i;const until=i+1<poses.length?poses[i+1].at:3.491;
+tl.fromTo(id,{scale:p.scale,x:p.x,y:p.y},{scale:p.scale+.01,x:p.x+2,y:p.y-2,duration:Math.max(.1,until-p.at),ease:"sine.inOut",immediateRender:false},p.at);
+if(i){tl.set("#scene-line-07-shot-"+(i-1),{opacity:0},p.at);tl.set(id,{opacity:1},p.at);}});
+window.__timelines["scene-line-07"]=tl;})();</script></template></body></html>

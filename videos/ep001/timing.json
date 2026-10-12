@@ -1,68 +1,373 @@
 {
+  "story_id": "ST001",
   "scenes": [
-    [
-      "arrival",
-      0,
-      2.883,
-      [
-        "assets/stills/01_miller_arrives-daughter.jpg",
-        "assets/motion/arrival-asks-daughter.jpg"
+    {
+      "id": "line-01",
+      "start": 0,
+      "duration": 2.883,
+      "assets": [
+        "series/xiangwei/assets/shots/retired_regular_hesitating_right_phone_v1.jpg",
+        "series/xiangwei/assets/shots/dad_medium_listen_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/0df27381e38b-retired_regular_hesitating_right_phone_v1.jpg",
+          "at": 0,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "src": "assets/takes/c7fdb8c06c15-dad_medium_listen_v1.jpg",
+          "at": 1.713,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "shot": "customer_medium",
+      "emotion": "hopeful",
+      "action": "enters_with_phone_right",
+      "listener_reaction": {
+        "speaker": "dad",
+        "shot": "dad_medium",
+        "emotion": "curious",
+        "action": "looks_up",
+        "description": "dad looks up"
+      }
+    },
+    {
+      "id": "line-02",
+      "start": 2.883,
+      "duration": 1.617,
+      "assets": [
+        "series/xiangwei/assets/shots/dad_medium_listen_v1.jpg",
+        "series/xiangwei/assets/shots/retired_regular_hesitating_right_phone_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/c7fdb8c06c15-dad_medium_listen_v1.jpg",
+          "at": 0,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "src": "assets/takes/0df27381e38b-retired_regular_hesitating_right_phone_v1.jpg",
+          "at": 0.847,
+          "scale": 1.12,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "shot": "dad_medium",
+      "emotion": "curious",
+      "action": "turns_to_customer",
+      "listener_reaction": {
+        "speaker": "retired_regular",
+        "shot": "customer_close",
+        "emotion": "hesitant",
+        "action": "hesitates",
+        "description": "Miller hesitates"
+      }
+    },
+    {
+      "id": "line-03",
+      "start": 4.5,
+      "duration": 3.261,
+      "assets": [
+        "series/xiangwei/assets/shots/retired_regular_hesitating_right_phone_v1.jpg",
+        "series/xiangwei/assets/shots/dad_medium_surprised_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/0df27381e38b-retired_regular_hesitating_right_phone_v1.jpg",
+          "at": 0,
+          "scale": 1.12,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "src": "assets/takes/5efebd6fae8a-dad_medium_surprised_v1.jpg",
+          "at": 2.191,
+          "scale": 1.12,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "shot": "customer_close",
+      "emotion": "shy",
+      "action": "looks_at_phone_right",
+      "listener_reaction": {
+        "speaker": "dad",
+        "shot": "dad_close",
+        "emotion": "surprised",
+        "action": "registers_surprise",
+        "description": "dad registers surprise"
+      }
+    },
+    {
+      "id": "line-04",
+      "start": 7.761,
+      "duration": 2.363,
+      "assets": [
+        "series/xiangwei/assets/shots/dad_medium_surprised_v1.jpg",
+        "series/xiangwei/assets/shots/retired_regular_hesitating_right_phone_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/5efebd6fae8a-dad_medium_surprised_v1.jpg",
+          "at": 0,
+          "scale": 1.12,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "src": "assets/takes/0df27381e38b-retired_regular_hesitating_right_phone_v1.jpg",
+          "at": 1.593,
+          "scale": 1.12,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "shot": "dad_close",
+      "emotion": "surprised",
+      "action": "raises_eyebrows",
+      "listener_reaction": {
+        "speaker": "retired_regular",
+        "shot": "customer_close",
+        "emotion": "nervous",
+        "action": "awkward_smile",
+        "description": "Miller smiles awkwardly"
+      }
+    },
+    {
+      "id": "line-05",
+      "start": 10.124,
+      "duration": 2.271,
+      "assets": [
+        "series/xiangwei/assets/shots/retired_regular_hesitating_right_phone_v1.jpg",
+        "series/xiangwei/assets/shots/dad_medium_listen_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/0df27381e38b-retired_regular_hesitating_right_phone_v1.jpg",
+          "at": 0,
+          "scale": 1.12,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "src": "assets/takes/c7fdb8c06c15-dad_medium_listen_v1.jpg",
+          "at": 1.551,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "shot": "customer_close",
+      "emotion": "nervous",
+      "action": "holds_phone_right",
+      "listener_reaction": {
+        "speaker": "dad",
+        "shot": "dad_medium",
+        "emotion": "warm",
+        "action": "listens",
+        "description": "dad listens warmly"
+      }
+    },
+    {
+      "id": "line-06",
+      "start": 12.395,
+      "duration": 3.204,
+      "assets": [
+        "series/xiangwei/assets/shots/dad_encourages_miller_v1.jpg",
+        "series/xiangwei/assets/shots/retired_regular_calls_right_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/fdf88e9aba18-dad_encourages_miller_v1.jpg",
+          "at": 0,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "src": "assets/takes/aaf308bc1674-retired_regular_calls_right_v1.jpg",
+          "at": 2.084,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "shot": "dad_medium",
+      "emotion": "encouraging",
+      "action": "gestures_toward_phone",
+      "listener_reaction": {
+        "speaker": "retired_regular",
+        "shot": "customer_medium",
+        "emotion": "decisive",
+        "action": "raises_phone_right",
+        "description": "Miller decides to call"
+      }
+    },
+    {
+      "id": "line-07",
+      "start": 15.599,
+      "duration": 3.491,
+      "assets": [
+        "series/xiangwei/assets/shots/retired_regular_calls_right_v1.jpg",
+        "series/xiangwei/assets/shots/daughter_peeks_toy_shelf_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/aaf308bc1674-retired_regular_calls_right_v1.jpg",
+          "at": 0,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "src": "assets/takes/a36070a5fd01-daughter_peeks_toy_shelf_v1.jpg",
+          "at": 1.871,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "shot": "customer_medium",
+      "emotion": "hopeful",
+      "action": "phone_at_right_ear",
+      "listener_reaction": {
+        "speaker": "daughter",
+        "shot": "daughter_reaction",
+        "emotion": "eager",
+        "action": "looks_up",
+        "description": "daughter looks up"
+      }
+    },
+    {
+      "id": "line-08",
+      "start": 19.09,
+      "duration": 2.385,
+      "assets": [
+        "series/xiangwei/assets/shots/daughter_peeks_toy_shelf_v1.jpg",
+        "series/xiangwei/assets/shots/retired_regular_calls_right_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/a36070a5fd01-daughter_peeks_toy_shelf_v1.jpg",
+          "at": 0,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "src": "assets/takes/aaf308bc1674-retired_regular_calls_right_v1.jpg",
+          "at": 1.615,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "shot": "daughter_reaction",
+      "emotion": "eager",
+      "action": "peeks_from_toy_shelf",
+      "listener_reaction": {
+        "speaker": "retired_regular",
+        "shot": "customer_medium",
+        "emotion": "hopeful",
+        "action": "waits_for_answer",
+        "description": "Miller waits for answer"
+      }
+    },
+    {
+      "id": "line-09",
+      "start": 21.475,
+      "duration": 2.392,
+      "assets": [
+        "series/xiangwei/assets/shots/retired_regular_relieved_right_phone_v1.jpg",
+        "series/xiangwei/assets/shots/dad_points_chair_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/e5e6aec5de58-retired_regular_relieved_right_phone_v1.jpg",
+          "at": 0,
+          "scale": 1.12,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "src": "assets/takes/bc0be07911c0-dad_points_chair_v1.jpg",
+          "at": 1.572,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "shot": "customer_close",
+      "emotion": "relieved",
+      "action": "lowers_phone_right",
+      "listener_reaction": {
+        "speaker": "dad",
+        "shot": "dad_medium",
+        "emotion": "urgent",
+        "action": "moves_to_chair",
+        "description": "dad moves toward chair"
+      }
+    },
+    {
+      "id": "line-10",
+      "start": 23.867,
+      "duration": 2.1,
+      "assets": [
+        "series/xiangwei/assets/shots/dad_points_chair_v1.jpg",
+        "series/xiangwei/assets/shots/retired_regular_relieved_right_phone_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/bc0be07911c0-dad_points_chair_v1.jpg",
+          "at": 0,
+          "scale": 1.035,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "src": "assets/takes/e5e6aec5de58-retired_regular_relieved_right_phone_v1.jpg",
+          "at": 1.38,
+          "scale": 1.055,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "shot": "shop_wide",
+      "emotion": "urgent",
+      "action": "points_to_chair",
+      "listener_reaction": {
+        "speaker": "retired_regular",
+        "shot": "customer_medium",
+        "emotion": "relieved",
+        "action": "turns_to_sit",
+        "description": "Miller turns to sit"
+      }
+    },
+    {
+      "id": "recall",
+      "start": 25.967,
+      "duration": 9.0,
+      "assets": [
+        "series/xiangwei/assets/shots/dad_points_chair_v1.jpg"
+      ],
+      "poses": [
+        {
+          "src": "assets/takes/bc0be07911c0-dad_points_chair_v1.jpg",
+          "at": 0,
+          "scale": 1.035,
+          "x": 0.0,
+          "y": 0.0
+        }
       ]
-    ],
-    [
-      "confession",
-      2.883,
-      4.878,
-      [
-        "assets/stills/02_miller_confesses-daughter.jpg",
-        "assets/motion/confession-shy-daughter.jpg",
-        "assets/stills/03_dad_encourages-daughter.jpg"
-      ]
-    ],
-    [
-      "surprise",
-      7.761,
-      4.634,
-      [
-        "assets/motion/confession-shy-daughter.jpg",
-        "assets/stills/03_dad_encourages-daughter.jpg"
-      ]
-    ],
-    [
-      "encourage",
-      12.395,
-      3.204,
-      [
-        "assets/stills/03_dad_encourages-daughter.jpg",
-        "assets/motion/phone-raise-daughter.jpg"
-      ]
-    ],
-    [
-      "call",
-      15.599,
-      5.876,
-      [
-        "assets/stills/04_miller_calls-right-hand.jpg",
-        "assets/stills/04_daughter_reacts-right-hand.jpg"
-      ]
-    ],
-    [
-      "answer",
-      21.475,
-      4.492,
-      [
-        "assets/stills/05_dad_hurries-daughter.jpg",
-        "assets/motion/chair-invite-daughter.jpg"
-      ]
-    ],
-    [
-      "phrase",
-      25.967,
-      9.0,
-      [
-        "assets/motion/chair-invite-daughter.jpg"
-      ]
-    ]
+    }
   ],
   "dialogue_starts": [
     0.12,

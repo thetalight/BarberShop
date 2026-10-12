@@ -1,0 +1,123 @@
+[
+  {
+    "id": "01",
+    "speaker": "dad",
+    "en": "How was your weekend, Mr. Miller?",
+    "zh": "米勒先生，周末过得怎么样？",
+    "voice": "am_michael",
+    "speed": 0.98,
+    "pitch_shift": 1.0,
+    "duration": 2.155,
+    "path": "assets/voice/01.wav"
+  },
+  {
+    "id": "02",
+    "speaker": "retired_regular",
+    "en": "Wet. Very wet.",
+    "zh": "湿透了。真的很湿。",
+    "voice": "am_adam",
+    "speed": 0.9,
+    "pitch_shift": 1.0,
+    "duration": 1.131,
+    "path": "assets/voice/02.wav"
+  },
+  {
+    "id": "03",
+    "speaker": "dad",
+    "en": "Did you go fishing with Milo?",
+    "zh": "你带米洛去钓鱼了吗？",
+    "voice": "am_michael",
+    "speed": 0.98,
+    "pitch_shift": 1.0,
+    "duration": 1.813,
+    "path": "assets/voice/03.wav"
+  },
+  {
+    "id": "04",
+    "speaker": "retired_regular",
+    "en": "Yes. I caught nothing.",
+    "zh": "对。我什么也没钓到。",
+    "voice": "am_adam",
+    "speed": 0.9,
+    "pitch_shift": 1.0,
+    "duration": 1.451,
+    "path": "assets/voice/04.wav"
+  },
+  {
+    "id": "05",
+    "speaker": "daughter",
+    "en": "Did Milo catch a fish?",
+    "zh": "米洛钓到鱼了吗？",
+    "voice": "af_heart",
+    "speed": 0.95,
+    "pitch_shift": 1.22,
+    "duration": 1.515,
+    "path": "assets/voice/05.wav"
+  },
+  {
+    "id": "06",
+    "speaker": "retired_regular",
+    "en": "He brought me this.",
+    "zh": "他给我带回了这个。",
+    "voice": "am_adam",
+    "speed": 0.9,
+    "pitch_shift": 1.0,
+    "duration": 1.237,
+    "path": "assets/voice/06.wav"
+  },
+  {
+    "id": "07",
+    "speaker": "dad",
+    "en": "A toy fish!",
+    "zh": "一条玩具鱼！",
+    "voice": "am_michael",
+    "speed": 0.98,
+    "pitch_shift": 1.0,
+    "duration": 1.195,
+    "path": "assets/voice/07.wav"
+  },
+  {
+    "id": "08",
+    "speaker": "daughter",
+    "en": "How was your weekend, little fish?",
+    "zh": "小鱼，你周末过得怎么样？",
+    "voice": "af_heart",
+    "speed": 0.95,
+    "pitch_shift": 1.22,
+    "duration": 1.771,
+    "path": "assets/voice/08.wav"
+  },
+  {
+    "id": "09",
+    "speaker": "retired_regular",
+    "en": "Better than mine, I think.",
+    "zh": "我想比我过得好。",
+    "voice": "am_adam",
+    "speed": 0.9,
+    "pitch_shift": 1.0,
+    "duration": 1.493,
+    "path": "assets/voice/09.wav"
+  },
+  {
+    "id": "10",
+    "speaker": "dad",
+    "en": "How was your weekend?",
+    "zh": "周末过得怎么样？",
+    "voice": "am_michael",
+    "speed": 0.98,
+    "pitch_shift": 1.0,
+    "duration": 1.472,
+    "path": "assets/voice/10.wav"
+  },
+  {
+    "id": "11",
+    "speaker": "dad",
+    "en": "How was your trip?",
+    "zh": "旅途过得怎么样？",
+    "voice": "am_michael",
+    "speed": 0.98,
+    "pitch_shift": 1.0,
+    "duration": 1.429,
+    "path": "assets/voice/11.wav"
+  }
+]

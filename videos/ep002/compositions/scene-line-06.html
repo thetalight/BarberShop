@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><body><template>
+<style>#scene-line-06-root{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;background:#251f18}
+#scene-line-06-root img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform-origin:50% 50%}
+#scene-line-06-root img:first-child{opacity:1}</style>
+<div id="scene-line-06-root" data-composition-id="scene-line-06" data-width="1080" data-height="1920" data-duration="1.687" data-layout-allow-overflow><img id="scene-line-06-shot-0" src="../assets/takes/c95948d5cd41-retired_regular_toy_fish_v1.jpg" alt="line-06 1">
+<img id="scene-line-06-shot-1" src="../assets/takes/5efebd6fae8a-dad_medium_surprised_v1.jpg" alt="line-06 2"></div>
+<script>(function(){const poses=[{"at": 0, "scale": 1.12, "x": 0.0, "y": 0.0}, {"at": 1.017, "scale": 1.12, "x": 0.0, "y": 0.0}],tl=gsap.timeline({paused:true});
+poses.forEach((p,i)=>{const id="#scene-line-06-shot-"+i;const until=i+1<poses.length?poses[i+1].at:1.687;
+tl.fromTo(id,{scale:p.scale,x:p.x,y:p.y},{scale:p.scale+.01,x:p.x+2,y:p.y-2,duration:Math.max(.1,until-p.at),ease:"sine.inOut",immediateRender:false},p.at);
+if(i){tl.set("#scene-line-06-shot-"+(i-1),{opacity:0},p.at);tl.set(id,{opacity:1},p.at);}});
+window.__timelines["scene-line-06"]=tl;})();</script></template></body></html>
