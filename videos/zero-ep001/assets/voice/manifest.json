@@ -1,0 +1,134 @@
+[
+  {
+    "id": "01",
+    "speaker": "noah",
+    "en": "Hold the door!",
+    "zh": "快帮我扶住门！",
+    "voice": "am_michael",
+    "speed": 0.9,
+    "pitch": 1.23,
+    "duration": 1.2,
+    "path": "assets/voice/01.wav"
+  },
+  {
+    "id": "02",
+    "speaker": "lan",
+    "en": "I've got it! Keep running!",
+    "zh": "我扶住了！快跑！",
+    "voice": "af_nova",
+    "speed": 0.93,
+    "pitch": 1.0,
+    "duration": 2.133,
+    "path": "assets/voice/02.wav"
+  },
+  {
+    "id": "03",
+    "speaker": "tick",
+    "en": "Three... two...",
+    "zh": "三……二……",
+    "voice": "am_adam",
+    "speed": 1.04,
+    "pitch": 1.27,
+    "duration": 0.859,
+    "path": "assets/voice/03.wav"
+  },
+  {
+    "id": "04",
+    "speaker": "noah",
+    "en": "My sister's night-light went out.",
+    "zh": "我妹妹的小夜灯灭了。",
+    "voice": "am_michael",
+    "speed": 0.9,
+    "pitch": 1.23,
+    "duration": 2.325,
+    "path": "assets/voice/04.wav"
+  },
+  {
+    "id": "05",
+    "speaker": "lan",
+    "en": "Is that a moon?",
+    "zh": "那是一颗月亮吗？",
+    "voice": "af_nova",
+    "speed": 0.93,
+    "pitch": 1.0,
+    "duration": 1.664,
+    "path": "assets/voice/05.wav"
+  },
+  {
+    "id": "06",
+    "speaker": "noah",
+    "en": "A little one. She's scared of the dark.",
+    "zh": "一颗小月亮。她怕黑。",
+    "voice": "am_michael",
+    "speed": 0.9,
+    "pitch": 1.23,
+    "duration": 2.581,
+    "path": "assets/voice/06.wav"
+  },
+  {
+    "id": "07",
+    "speaker": "tick",
+    "en": "Next stop: her island!",
+    "zh": "下一站：她住的小岛！",
+    "voice": "am_adam",
+    "speed": 1.04,
+    "pitch": 1.27,
+    "duration": 1.288,
+    "path": "assets/voice/07.wav"
+  },
+  {
+    "id": "08",
+    "speaker": "noah",
+    "en": "Tick, hold the door!",
+    "zh": "蒂克，帮我扶住门！",
+    "voice": "am_michael",
+    "speed": 0.9,
+    "pitch": 1.23,
+    "duration": 1.413,
+    "path": "assets/voice/08.wav"
+  },
+  {
+    "id": "09",
+    "speaker": "sister",
+    "en": "You brought the moon!",
+    "zh": "你把月亮带来了！",
+    "voice": "af_heart",
+    "speed": 0.92,
+    "pitch": 1.28,
+    "duration": 1.03,
+    "path": "assets/voice/09.wav"
+  },
+  {
+    "id": "10",
+    "speaker": "noah",
+    "en": "Just for you.",
+    "zh": "专门给你的。",
+    "voice": "am_michael",
+    "speed": 0.9,
+    "pitch": 1.23,
+    "duration": 1.216,
+    "path": "assets/voice/10.wav"
+  },
+  {
+    "id": "11",
+    "speaker": "lan",
+    "en": "Hold the door!",
+    "zh": "请帮我扶住门！",
+    "voice": "af_nova",
+    "speed": 0.93,
+    "pitch": 1.0,
+    "duration": 1.579,
+    "path": "assets/voice/11.wav"
+  },
+  {
+    "id": "12",
+    "speaker": "lan",
+    "en": "Hold the elevator, please!",
+    "zh": "请帮我等一下电梯！",
+    "voice": "af_nova",
+    "speed": 0.93,
+    "pitch": 1.0,
+    "duration": 2.347,
+    "path": "assets/voice/12.wav"
+  }
+]

@@ -1,0 +1,108 @@
+{
+  "duration": 33.189,
+  "card_start": 25.689,
+  "dialogue": [
+    {
+      "index": 1,
+      "start": 0.0,
+      "duration": 1.905,
+      "voice_duration": 1.2,
+      "shot": "door_wide",
+      "speaker": "noah",
+      "en": "Hold the door!",
+      "zh": "快帮我扶住门！"
+    },
+    {
+      "index": 2,
+      "start": 1.905,
+      "duration": 2.838,
+      "voice_duration": 2.133,
+      "shot": "lan_close",
+      "speaker": "lan",
+      "en": "I've got it! Keep running!",
+      "zh": "我扶住了！快跑！"
+    },
+    {
+      "index": 3,
+      "start": 4.743,
+      "duration": 2.259,
+      "voice_duration": 0.859,
+      "shot": "lan_close",
+      "speaker": "tick",
+      "en": "Three... two...",
+      "zh": "三……二……"
+    },
+    {
+      "index": 4,
+      "start": 7.002,
+      "duration": 3.16,
+      "voice_duration": 2.325,
+      "shot": "boy_close",
+      "speaker": "noah",
+      "en": "My sister's night-light went out.",
+      "zh": "我妹妹的小夜灯灭了。"
+    },
+    {
+      "index": 5,
+      "start": 10.162,
+      "duration": 2.434,
+      "voice_duration": 1.664,
+      "shot": "lan_close",
+      "speaker": "lan",
+      "en": "Is that a moon?",
+      "zh": "那是一颗月亮吗？"
+    },
+    {
+      "index": 6,
+      "start": 12.596,
+      "duration": 3.676,
+      "voice_duration": 2.581,
+      "shot": "boy_close",
+      "speaker": "noah",
+      "en": "A little one. She's scared of the dark.",
+      "zh": "一颗小月亮。她怕黑。"
+    },
+    {
+      "index": 7,
+      "start": 16.272,
+      "duration": 2.753,
+      "voice_duration": 1.288,
+      "shot": "boy_close",
+      "speaker": "tick",
+      "en": "Next stop: her island!",
+      "zh": "下一站：她住的小岛！"
+    },
+    {
+      "index": 8,
+      "start": 19.025,
+      "duration": 2.183,
+      "voice_duration": 1.413,
+      "shot": "delivery_wide",
+      "speaker": "noah",
+      "en": "Tick, hold the door!",
+      "zh": "蒂克，帮我扶住门！"
+    },
+    {
+      "index": 9,
+      "start": 21.208,
+      "duration": 2.3,
+      "voice_duration": 1.03,
+      "shot": "delivery_wide",
+      "speaker": "sister",
+      "en": "You brought the moon!",
+      "zh": "你把月亮带来了！"
+    },
+    {
+      "index": 10,
+      "start": 23.508,
+      "duration": 2.181,
+      "voice_duration": 1.216,
+      "shot": "delivery_wide",
+      "speaker": "noah",
+      "en": "Just for you.",
+      "zh": "专门给你的。"
+    }
+  ],
+  "repeat_start": 26.139,
+  "variant_start": 29.489
+}

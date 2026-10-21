@@ -1,60 +1,7 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="dark">
-  <title>老爸的英语理发店 · 系列工作台</title>
-  <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-  <div class="shell">
-    <header class="topbar">
-      <div class="brand"><span class="brand-mark">✂</span><span>老爸的英语理发店 <small>系列工作台</small></span></div>
-      <nav aria-label="页面导航"><a href="#stories">故事库</a><a href="#tasks">历史任务</a><a href="#assets">固定素材</a></nav>
-      <span class="local-pill"><span class="live-dot"></span>仅本机</span>
-    </header>
-
-    <main>
-      <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">DAILY ENGLISH · STORY LIBRARY</p>
-          <h1>老爸的英语理发店<br><em>每天一段生活英语。</em></h1>
-          <p class="hero-description">中国爸爸在美国社区经营理发店，四岁的女儿放学后常来。熟客带来每天的小事，一段英语对话学会一个生活表达。</p>
-          <div class="source-line"><span>故事唯一来源</span><code id="sourcePath">载入中…</code></div>
-        </div>
-        <div class="hero-art" aria-hidden="true"><img id="heroBarber" alt=""><span class="art-caption">常驻人物 · 理发师</span></div>
-      </section>
-
-      <section class="stats" aria-label="系列概况">
-        <div class="stat"><strong id="storyCount">—</strong><span>日更选题</span></div>
-        <div class="stat"><strong id="producedCount">—</strong><span>已制作故事</span></div>
-        <div class="stat"><strong id="taskCount">—</strong><span>已完成视频任务</span></div>
-        <div class="stat"><strong id="assetCount">—</strong><span>系列固定素材</span></div>
-      </section>
-
-      <section id="stories" class="section">
-        <div class="section-heading"><div><p class="eyebrow">01 / STORY LIBRARY</p><h2>系列故事库</h2><p>查看已制作的系列开场和日更计划；按角色、话题或英语句子查找。</p></div><span class="section-count" id="storyResult">—</span></div>
-        <div class="filters"><label class="search"><span>⌕</span><input id="storySearch" type="search" placeholder="搜索事件、角色或英语表达" aria-label="搜索故事"></label><label class="category-select">类型 <select id="categoryFilter" aria-label="筛选故事类型"><option value="all">全部类型</option><option value="intro">系列开场</option><option value="service">接待与服务</option><option value="chat">日常闲聊</option><option value="interaction">父女与邻里</option></select></label><div class="filter-buttons" role="group" aria-label="故事类型"><button class="active" data-filter="all">全部</button><button data-filter="daily">日更计划</button><button data-filter="scripted">已写对话</button><button data-filter="intro">序章</button><button data-filter="produced">已制作</button></div></div>
-        <div id="storyGrid" class="story-grid" aria-live="polite"></div>
-      </section>
-
-      <section id="tasks" class="section">
-        <div class="section-heading"><div><p class="eyebrow">02 / PRODUCTION HISTORY</p><h2>历史任务</h2><p>从已有剧集、生成记录和成片目录汇总；展开可查看各次生成任务。</p></div><span class="section-count" id="taskResult">—</span></div>
-        <div id="taskList" class="task-list" aria-live="polite"></div>
-      </section>
-
-      <section id="assets" class="section asset-section">
-        <div class="section-heading"><div><p class="eyebrow">03 / SHARED VISUALS</p><h2>固定人物与店铺</h2><p>爸爸、女儿、熟客和社区理发店复用同一组参考图；偶尔出现的新顾客才按集新增。</p></div></div>
-        <div id="assetGrid" class="asset-grid"></div>
-      </section>
-    </main>
-
-    <footer><span>老爸的英语理发店 · 本地工作台</span><span>数据保存在当前项目，页面只提供本机读取。</span></footer>
-  </div>
-
-  <dialog id="storyDialog" class="detail-dialog"><button class="dialog-close" data-close aria-label="关闭">×</button><div id="storyDetail"></div></dialog>
-  <dialog id="videoDialog" class="video-dialog"><button class="dialog-close" data-close aria-label="关闭">×</button><h3 id="videoTitle"></h3><video id="videoPlayer" controls playsinline></video></dialog>
-  <script src="/app.js?v=3" defer></script>
-</body>
-</html>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>零号电梯 · 故事工作台</title><link rel="stylesheet" href="/styles.css"></head><body>
+<header class="topbar"><a class="logo" href="/">◈ 零号电梯</a><span>DAILY ENGLISH STORIES · 本地工作台</span></header>
+<main><section class="hero"><div><span class="eyebrow">每扇门后都有一个故事</span><h1>打开一扇门。<br><em>学会一句话。</em></h1><p>一部每天更新的奇想英语情景剧。跟着岚与蒂克，遇见新乘客，把故事里的英语带回生活。</p><div class="actions"><a href="#stories">探索故事 ↗</a><a href="#history">查看制作记录</a></div></div><div class="hero-art"><img src="/media/series/elevator_zero/assets/elevator_door_master.png" alt="零号电梯在云海间开门"><b>EP 01 · 门快关了</b></div></section>
+<section id="stats" class="stats"></section>
+<section class="content" id="stories"><div class="section-head"><div><span class="eyebrow">STORY ARCHIVE</span><h2>所有已构思的故事</h2><p>每条故事从统一 JSONL 档案读取，按事件与核心表达查重。</p></div><input id="search" type="search" placeholder="搜索故事或英语表达" aria-label="搜索故事"></div><div class="filters"><button data-filter="all" class="active">全部</button><button data-filter="scripted">已写剧本</button><button data-filter="produced">已成片</button><button data-filter="idea">待制作</button></div><div id="story-grid" class="story-grid"></div><p id="empty" hidden>没有找到符合条件的故事。</p></section>
+<section class="content" id="history"><div class="section-head"><div><span class="eyebrow">PRODUCTION LOG</span><h2>历史任务与成片</h2><p>从第一条到以后每一天，都能在这里找到。</p></div></div><div id="task-list" class="task-list"></div></section>
+<section class="content" id="assets"><div class="section-head"><div><span class="eyebrow">THE WORLD</span><h2>固定世界与角色</h2><p>岚、蒂克与零号电梯持续出现；新乘客带来新的故事。</p></div></div><div id="asset-grid" class="asset-grid"></div></section></main><footer><strong>◈ 零号电梯</strong><span>故事与学习，一起向前。</span><small id="source"></small></footer><script src="/app.js" defer></script></body></html>
