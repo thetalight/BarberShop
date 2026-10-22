@@ -5,6 +5,7 @@ import html
 import json
 import math
 import shutil
+import subprocess
 import wave
 from pathlib import Path
 
@@ -68,6 +69,15 @@ def srt_time(seconds: float) -> str:
     return f'{h:02}:{m:02}:{s:02},{ms:03}'
 
 
+def media_duration(path: Path) -> float:
+    result = subprocess.run(
+        ['ffprobe', '-v', 'error', '-show_entries', 'format=duration',
+         '-of', 'default=noprint_wrappers=1:nokey=1', str(path)],
+        check=True, capture_output=True, text=True,
+    )
+    return float(result.stdout.strip())
+
+
 def main() -> None:
     story = get_story('EZ001')
     manifest_path = VOICE / 'manifest.json'
@@ -108,25 +118,34 @@ def main() -> None:
     tweens = []
     srt = []
     names = {'lan':'岚 · LAN','tick':'蒂克 · TICK','noah':'诺亚 · NOAH','sister':'妹妹 · SISTER'}
+    # Story visuals are real LTX motion. The learning card is the only still frame.
+    motion_segments = [
+        (1, 1, 'door_rush_approved.mp4'),
+        (2, 3, 'lan_holds_door_approved.mp4'),
+        (4, 5, 'noah_explains_approved.mp4'),
+        (6, 7, 'noah_destination_approved.mp4'),
+        (8, 9, 'moon_delivery_approved.mp4'),
+        (10, 10, 'moon_outro_approved.mp4'),
+    ]
+    for first, last, source in motion_segments:
+        path = PROJECT / 'assets/ltx' / source
+        if not path.is_file():
+            raise RuntimeError(f'Missing approved LTX motion clip: {path}')
+        start = timeline[first - 1]['start']
+        end = timeline[last - 1]['start'] + timeline[last - 1]['duration']
+        span = round(end - start, 3)
+        rate = media_duration(path) / span
+        if not .75 <= rate <= 1.35:
+            raise RuntimeError(f'{source} needs an excessive playback change: {rate:.2f}x')
+        visuals.append(f'<video id="motion-{first}-{last}" src="assets/ltx/{source}" data-start="{f(start)}" data-duration="{f(span)}" data-media-start="0" data-playback-rate="{rate:.4f}" data-track-index="{first-1}" data-track-kind="video" muted playsinline class="clip picture"></video>')
+        visuals.append(f'<div id="scene-{first}-shade" class="clip video-vignette" data-start="{f(start)}" data-duration="{f(span)}" data-track-index="11"></div>')
     for row in timeline:
         i, start, duration = row['index'], row['start'], row['duration']
-        shot = row['shot']
-        approved_motion = i == 1 and (PROJECT/'assets/ltx/door_rush_approved.mp4').is_file()
-        # Framework-owned playback requires a timed video at the top level.
-        if approved_motion:
-            visuals.append(f'<video id="visual-{i}" src="assets/ltx/door_rush_approved.mp4" data-start="{f(start)}" data-duration="{f(duration)}" data-media-start="0" data-track-index="{i-1}" data-track-kind="video" muted playsinline class="clip picture"></video>')
-            visuals.append(f'<div id="scene-{i}-shade" class="clip video-vignette" data-start="{f(start)}" data-duration="{f(duration)}" data-track-index="11"></div>')
-        else:
-            visual = f'<img id="visual-{i}" src="assets/visuals/{shot}.png" alt="" class="picture">'
-            visuals.append(f'<section id="scene-{i}" class="clip scene" data-start="{f(start)}" data-duration="{f(duration)}" data-track-index="{i-1}" data-track-kind="graphics" data-layout-allow-overflow><div class="visual-frame">{visual}</div><div class="vignette"></div></section>')
         # The timed captions all live on the single captions track.
         en = html.escape(row['en']); zh = html.escape(row['zh'])
         emphasis = ' emphasis' if 'hold the door' in row['en'].lower() else ''
         captions.append(f'<div id="caption-clip-{i}" class="clip caption" data-start="{f(start)}" data-duration="{f(duration-.08)}" data-track-index="20" data-track-kind="captions"><div id="caption-{i}" class="subtitle"><span class="speaker">{names[row["speaker"]]}</span><strong class="english{emphasis}">{en}</strong><span class="chinese">{zh}</span></div></div>')
         audio_tags.append(f'<audio id="voice-{i:02}" src="assets/voice/{i:02}.wav" data-start="{f(start)}" data-duration="{f(row["voice_duration"])}" data-track-index="30" data-volume="1"></audio>')
-        drift = 15 if i%2 else -13
-        if not approved_motion:
-            tweens.append(f'tl.fromTo("#visual-{i}",{{scale:1.02,x:0,y:0}},{{scale:1.075,x:{drift},y:-9,duration:{f(duration)},ease:"none"}},{f(start)});')
         tweens.append(f'tl.fromTo("#caption-{i}",{{y:22,opacity:0}},{{y:0,opacity:1,duration:0.23,ease:"power2.out",immediateRender:false}},{f(start+.04)});')
         srt.append(f'{i}\n{srt_time(start)} --> {srt_time(start+duration-.1)}\n{row["en"]}\n{row["zh"]}\n')
 

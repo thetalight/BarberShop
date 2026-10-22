@@ -21,6 +21,8 @@ python3 -m elevator.cli list
 
 校验会拒绝重复的事件、核心表达与发布标题，也会检查 10–20 字简介、剧本所用镜头和每集至少两次有情境的核心句。固定角色与场景见 [系列设定](series/elevator_zero/series.md)，固定镜头登记在 [fixed.json](series/elevator_zero/assets/fixed.json)。
 
+`skills/` 中的三个项目技能分别负责故事镜头、口语教学和成片 QA。新的人物画面以 [固定图提示词](series/elevator_zero/assets/IMAGE_PROMPTS.md) 为参考，配音设定集中在 [voices.json](series/elevator_zero/voices.json)。
+
 ## 第一集制作
 
 第一集工程位于 [videos/zero-ep001](videos/zero-ep001)。从全局档案读取对白后，先用本地 Kokoro 生成英语声音，再按实际 WAV 时长排画面与双语字幕：
@@ -33,6 +35,6 @@ npm run check
 npm run render -- --output ../../outputs/zero-ep001/final.mp4 --fps 24
 ```
 
-可选的 LTX 镜头使用本机 `/Users/product/sex` 的模型。候选镜头须先检查人物身份、月亮灯手别与空间连贯；只有审核通过并命名为 `assets/ltx/door_rush_approved.mp4` 时，重建脚本才把它放进开头。候选结果不会自动进入成片。
+剧情段落使用本机 `/Users/product/sex` 的 LTX 模型生成短动作镜头，学习卡保留文字画面。可运行 `videos/zero-ep001/generate_ltx_batch.py` 生成候选片；每段须逐帧检查人物身份、人数、月亮灯手别和空间连贯，再命名为 `assets/ltx/*_approved.mp4`。重建脚本要求六段审核通过的动作片齐全，缺失时会明确报错，候选片不会自动进入成片。
 
 每条视频先有一个可见的行动和悬念，再用角色英语对话推进；字幕提供理解帮助，结尾练习提供开口机会。每天写下一集前运行故事档案查重。

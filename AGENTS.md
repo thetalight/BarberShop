@@ -2,4 +2,6 @@
 
 本仓库的新系列是《零号电梯》。日更故事唯一文字档案是 `series/elevator_zero/stories.jsonl`；人物、场景、声音和镜头资产在 `series/elevator_zero/`。制作单集前先查档案，避免重复事件、英语表达和连续线索。
 
+项目技能位于 `skills/`：`elevator-story-director` 管理故事、动作与镜头，`story-english-editor` 校订英语与双语字幕，`elevator-video-qa` 检查重建工程和成片。
+
 视频修改先遵循 HyperFrames 技能与单集 `AGENTS.md`。对白修改后先生成英文声音，再按实际 WAV 时长重建画面、双语字幕和教学卡。LTX 仅使用通过身份、人数、道具手别和空间方位检查的短动作镜头。旧理发店角色、场景、故事和媒体不得用于新系列。
